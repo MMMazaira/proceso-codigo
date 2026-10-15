@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx", "module": "esnext", "moduleResolution": "bundler", "target": "ES2022", "esModuleInterop": true, "skipLibCheck": true,
+    "paths": {
+      "@/*": ["../src/*"],
+      "next/link": ["./stubs/link.tsx"],
+      "next/image": ["./stubs/image.tsx"],
+      "next/font/google": ["./stubs/font.ts"],
+      "next/server": ["./stubs/server.ts"],
+      "react": ["/home/claude/.npm-global/lib/node_modules/react"], "react/*": ["/home/claude/.npm-global/lib/node_modules/react/*"], "react-dom/*": ["/home/claude/.npm-global/lib/node_modules/react-dom/*"]
+    }
+  }
+}
