@@ -1,14 +1,17 @@
 @import "tailwindcss";
 
+/* Identidad: azul acero y marino sobre gris azulado claro, tipografía grotesca de peso alto */
 @theme {
   --color-bg: #ffffff;
-  --color-surface: #f3f5f7;
-  --color-ink: #11202e;
-  --color-muted: #4b5966;
-  --color-primary: #0f2e4a;
-  --color-primary-dark: #0a2135;
-  --color-accent: #1f6f8b;
-  --color-line: #dde3e8;
+  --color-surface: #eef3f7;
+  --color-mist: #d3dfe8;
+  --color-ink: #121a22;
+  --color-muted: #47515b;
+  --color-primary: #0f2b45;
+  --color-primary-dark: #0a1f33;
+  --color-accent: #1d5d96;
+  --color-accent-dark: #164a78;
+  --color-line: #d6dee4;
 
   --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
 }

@@ -167,7 +167,7 @@ export default function ContactForm({ topics }: { topics: string[] }) {
         <button
           type="submit"
           disabled={status === "sending"}
-          className="rounded-md bg-primary px-6 py-3 font-semibold text-bg hover:bg-primary-dark disabled:opacity-60"
+          className="rounded-sm bg-accent px-6 py-3 font-semibold text-bg hover:bg-accent-dark disabled:opacity-60"
         >
           {status === "sending" ? "Enviando…" : "Enviar mensaje"}
         </button>

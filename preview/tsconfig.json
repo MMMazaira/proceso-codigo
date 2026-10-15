@@ -7,6 +7,7 @@
       "next/image": ["./stubs/image.tsx"],
       "next/font/google": ["./stubs/font.ts"],
       "next/server": ["./stubs/server.ts"],
+      "next/navigation": ["./stubs/navigation.ts"],
       "react": ["/home/claude/.npm-global/lib/node_modules/react"], "react/*": ["/home/claude/.npm-global/lib/node_modules/react/*"], "react-dom/*": ["/home/claude/.npm-global/lib/node_modules/react-dom/*"]
     }
   }

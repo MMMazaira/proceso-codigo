@@ -1,14 +1,31 @@
 import * as React from "react";
-(globalThis as any).React = React;
 import { renderToStaticMarkup } from "react-dom/server";
 import { writeFileSync, mkdirSync } from "node:fs";
-import Home from "@/app/page";
-import Privacidad from "@/app/privacidad/page";
-import AvisoLegal from "@/app/aviso-legal/page";
 
-mkdirSync("dist", { recursive: true });
-for (const [name, C] of [["index", Home], ["privacidad", Privacidad], ["aviso-legal", AvisoLegal]] as const) {
-  const html = renderToStaticMarkup(<C />);
-  writeFileSync(`dist/${name}.body.html`, html);
-  console.log(name, html.length, "chars");
+// La vista previa usa la transformación JSX clásica: React debe existir
+// antes de importar los componentes (algunos crean JSX al cargar el módulo).
+(globalThis as Record<string, unknown>).React = React;
+
+async function main() {
+  const routes: Record<string, () => Promise<{ default: React.ComponentType }>> = {
+    "/": () => import("@/app/page"),
+    "/servicios": () => import("@/app/servicios/page"),
+    "/proyectos": () => import("@/app/proyectos/page"),
+    "/como-trabajamos": () => import("@/app/como-trabajamos/page"),
+    "/equipo": () => import("@/app/equipo/page"),
+    "/contacto": () => import("@/app/contacto/page"),
+    "/privacidad": () => import("@/app/privacidad/page"),
+    "/aviso-legal": () => import("@/app/aviso-legal/page"),
+  };
+  mkdirSync("dist", { recursive: true });
+  const out: Record<string, string> = {};
+  for (const [path, load] of Object.entries(routes)) {
+    (globalThis as Record<string, unknown>).__PREVIEW_PATH__ = path;
+    const Page = (await load()).default;
+    out[path] = renderToStaticMarkup(<Page />);
+    console.log(path.padEnd(18), out[path].length, "chars");
+  }
+  writeFileSync("dist/pages.json", JSON.stringify(out));
 }
+
+main();

@@ -3,14 +3,11 @@ import ContactForm from "./ContactForm";
 
 export default function Contact() {
   return (
-    <section id="contacto" aria-labelledby="contacto-title" className="border-t border-line bg-surface">
-      <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 md:py-24 lg:grid-cols-[1fr_1.5fr] lg:gap-16">
+    <section className="bg-surface">
+      <div className="mx-auto grid max-w-6xl gap-12 px-4 py-14 sm:px-6 md:py-20 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
         <div>
-          <h2 id="contacto-title" className="text-3xl font-semibold tracking-tight text-primary md:text-4xl">
-            {contact.heading}
-          </h2>
-          <p className="mt-4 text-lg leading-relaxed text-muted">{contact.body}</p>
-          <dl className="mt-8 space-y-4">
+          <h2 className="text-lg font-semibold text-ink">Datos de contacto</h2>
+          <dl className="mt-5 space-y-4">
             <div>
               <dt className="text-sm text-muted">Correo</dt>
               <dd>

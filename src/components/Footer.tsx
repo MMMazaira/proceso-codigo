@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="bg-primary text-bg/80">
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 sm:px-6 md:flex-row md:items-center md:justify-between">
         <div>
-          <Logo className="text-bg" />
+          <Logo className="text-accent [&_span]:text-bg" />
           <p className="mt-2 text-sm">{site.email}</p>
         </div>
         <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm">

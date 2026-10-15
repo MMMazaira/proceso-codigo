@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { nav, site } from "@/content/site";
+import { site } from "@/content/site";
+import NavLinks from "./NavLinks";
 
 export function Logo({ className = "" }: { className?: string }) {
   return (
@@ -8,7 +9,7 @@ export function Logo({ className = "" }: { className?: string }) {
         <rect width="26" height="26" rx="4" fill="currentColor" />
         <path d="M7 9h12M7 13h8M7 17h12" stroke="var(--color-bg)" strokeWidth="2" strokeLinecap="round" />
       </svg>
-      <span className="font-semibold tracking-tight">{site.name}</span>
+      <span className="font-bold tracking-tight text-ink">{site.name}</span>
     </span>
   );
 }
@@ -23,40 +24,24 @@ export default function Header() {
         Saltar al contenido
       </a>
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-4 sm:px-6">
-        <Link href="/" className="text-primary" aria-label={`${site.name}, inicio`}>
+        <Link href="/" className="text-accent" aria-label={`${site.name}, inicio`}>
           <Logo className="text-lg" />
         </Link>
 
-        <nav aria-label="Principal" className="hidden md:block">
-          <ul className="flex items-center gap-8 text-[0.95rem] text-muted">
-            {nav.map((item) => (
-              <li key={item.href}>
-                <a href={item.href} className="hover:text-primary">
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+        <nav aria-label="Principal" className="hidden lg:block">
+          <NavLinks variant="desktop" />
         </nav>
 
-        <a
-          href="/#contacto"
-          className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-bg hover:bg-primary-dark"
+        <Link
+          href="/contacto"
+          className="rounded-sm bg-accent px-4 py-2 text-sm font-semibold text-bg hover:bg-accent-dark"
         >
           Solicitar reunión
-        </a>
+        </Link>
       </div>
 
-      <nav aria-label="Secciones" className="border-t border-line md:hidden">
-        <ul className="mx-auto flex max-w-6xl gap-6 overflow-x-auto whitespace-nowrap px-4 py-2.5 text-sm text-muted">
-          {nav.map((item) => (
-            <li key={item.href}>
-              <a href={item.href} className="hover:text-primary">
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+      <nav aria-label="Secciones" className="border-t border-line lg:hidden">
+        <NavLinks variant="mobile" />
       </nav>
     </header>
   );

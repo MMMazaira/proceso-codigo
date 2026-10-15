@@ -1,10 +1,6 @@
-import Header from "@/components/Header";
+import PageShell from "@/components/PageShell";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import Method from "@/components/Method";
-import Team from "@/components/Team";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import HomeSummary from "@/components/HomeSummary";
 import { site, team } from "@/content/site";
 
 const jsonLd = {
@@ -21,17 +17,10 @@ const jsonLd = {
 
 export default function Home() {
   return (
-    <>
-      <Header />
-      <main id="contenido">
-        <Hero />
-        <Services />
-        <Method />
-        <Team />
-        <Contact />
-      </main>
-      <Footer />
+    <PageShell>
+      <Hero />
+      <HomeSummary />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-    </>
+    </PageShell>
   );
 }

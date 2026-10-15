@@ -1,6 +1,12 @@
 import type { MetadataRoute } from "next";
-import { site } from "@/content/site";
+import { nav, site } from "@/content/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [{ url: site.url, lastModified: new Date(), changeFrequency: "monthly", priority: 1 }];
+  const routes = ["", ...nav.map((n) => n.href)];
+  return routes.map((path) => ({
+    url: `${site.url}${path}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: path === "" ? 1 : 0.8,
+  }));
 }
