@@ -1,17 +1,20 @@
 @import "tailwindcss";
 
-/* Identidad: azul acero y marino sobre gris azulado claro, tipografía grotesca de peso alto */
+/* Identidad Armartech: azul marino y turquesa del logotipo, con azul y gris de apoyo */
 @theme {
   --color-bg: #ffffff;
-  --color-surface: #eef3f7;
-  --color-mist: #d3dfe8;
-  --color-ink: #121a22;
-  --color-muted: #47515b;
-  --color-primary: #0f2b45;
-  --color-primary-dark: #0a1f33;
-  --color-accent: #1d5d96;
-  --color-accent-dark: #164a78;
-  --color-line: #d6dee4;
+  --color-surface: #eef3f6;
+  --color-mist: #dde7ee;
+  --color-ink: #0f1d2b;
+  --color-muted: #46535f;
+  --color-primary: #072b4a;
+  --color-primary-dark: #041d34;
+  --color-accent: #00707f;
+  --color-accent-dark: #005865;
+  --color-teal: #1fb5c1;
+  --color-blue: #0a6fb5;
+  --color-slate: #3f4a55;
+  --color-line: #d3dde5;
 
   --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
 }
@@ -19,7 +22,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
+    scroll-padding-top: 6rem;
   }
 
   body {
@@ -45,4 +48,17 @@
       scroll-behavior: auto;
     }
   }
+}
+
+/* Fondo de respaldo cuando aún no hay foto: azul marino con trama de plano técnico */
+@utility bg-blueprint {
+  background-color: var(--color-primary);
+  background-image:
+    linear-gradient(rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(rgb(255 255 255 / 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.025) 1px, transparent 1px),
+    radial-gradient(ellipse at 85% 30%, rgb(31 181 193 / 0.28), transparent 55%),
+    linear-gradient(135deg, var(--color-primary-dark), var(--color-primary) 55%, #0b3d63);
+  background-size: 96px 96px, 96px 96px, 24px 24px, 24px 24px, 100% 100%, 100% 100%;
 }

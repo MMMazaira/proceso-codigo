@@ -1,33 +1,47 @@
 import Link from "next/link";
 import { homeCta, services } from "@/content/site";
+import Backdrop from "./Backdrop";
 import PillarIcon from "./PillarIcon";
 
-// Portada: los tres pilares en una línea cada uno y una llamada a contacto.
+// Color de cada pilar, tomado del logotipo
+export const pillarTone: Record<string, { overlay: string; chip: string }> = {
+  consultoria: { overlay: "bg-gradient-to-t from-primary-dark via-primary/85 to-blue/40", chip: "bg-blue" },
+  web: { overlay: "bg-gradient-to-t from-primary-dark via-primary/85 to-accent/45", chip: "bg-accent" },
+  formacion: { overlay: "bg-gradient-to-t from-primary-dark via-primary/85 to-slate/50", chip: "bg-slate" },
+};
+
+// Portada: los tres pilares con imagen de fondo y una llamada a contacto.
 export default function HomeSummary() {
   return (
     <>
-      <section aria-labelledby="pilares-title" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-20">
-        <h2 id="pilares-title" className="sr-only">
-          {services.heading}
-        </h2>
-        <ul className="grid gap-px overflow-hidden rounded-md border border-line bg-line md:grid-cols-3">
-          {services.pillars.map((p) => (
-            <li key={p.id} className="bg-bg">
-              <Link href={`/servicios#${p.id}`} className="group flex h-full flex-col p-7">
-                <span className="flex h-11 w-11 items-center justify-center rounded-md bg-primary text-bg">
-                  <PillarIcon id={p.id} size={24} />
-                </span>
-                <span className="mt-5 text-xl font-extrabold tracking-tight text-ink group-hover:text-accent">
-                  {p.name}
-                </span>
-                <span className="mt-2 leading-relaxed text-muted">{p.summary}</span>
-                <span className="mt-5 text-sm font-semibold text-accent group-hover:underline underline-offset-4">
-                  Ver servicios
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
+      <section aria-labelledby="pilares-title" className="bg-surface">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-20">
+          <h2 id="pilares-title" className="max-w-2xl text-3xl font-extrabold tracking-tight text-ink md:text-4xl">
+            {services.heading}
+          </h2>
+          <ul className="mt-10 grid gap-5 md:grid-cols-3">
+            {services.pillars.map((p) => (
+              <li key={p.id}>
+                <Link
+                  href={`/servicios#${p.id}`}
+                  className="group relative isolate flex min-h-[19rem] flex-col justify-end overflow-hidden rounded-md p-7 text-bg"
+                >
+                  <Backdrop image={p.image} overlay={pillarTone[p.id]?.overlay} position={p.imagePosition} />
+                  <span
+                    className={`flex h-11 w-11 items-center justify-center rounded-md text-bg ${pillarTone[p.id]?.chip ?? "bg-accent"}`}
+                  >
+                    <PillarIcon id={p.id} size={24} />
+                  </span>
+                  <span className="mt-5 text-2xl font-extrabold tracking-tight">{p.name}</span>
+                  <span className="mt-2 leading-relaxed text-bg/85">{p.summary}</span>
+                  <span className="mt-5 text-sm font-semibold text-teal group-hover:underline underline-offset-4">
+                    Ver servicios
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
 
       <section aria-labelledby="cta-title" className="bg-primary text-bg">
@@ -40,7 +54,7 @@ export default function HomeSummary() {
           </div>
           <Link
             href={homeCta.cta.href}
-            className="shrink-0 self-start rounded-sm bg-bg px-5 py-3 font-semibold text-primary hover:bg-surface md:self-auto"
+            className="shrink-0 self-start rounded-sm bg-teal px-5 py-3 font-semibold text-primary-dark hover:bg-bg md:self-auto"
           >
             {homeCta.cta.label}
           </Link>

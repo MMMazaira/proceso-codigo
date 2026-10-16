@@ -1,4 +1,6 @@
 import { services, solutions, type Package } from "@/content/site";
+import Backdrop from "./Backdrop";
+import { pillarTone } from "./HomeSummary";
 import PillarIcon from "./PillarIcon";
 
 function SolutionItem({ p }: { p: Package }) {
@@ -49,24 +51,46 @@ export default function Services() {
               key={p.id}
               id={p.id}
               aria-labelledby={`${p.id}-title`}
-              className="flex scroll-mt-28 flex-col rounded-md border border-line bg-bg p-6 sm:p-7"
+              className="flex scroll-mt-32 flex-col overflow-hidden rounded-md border border-line bg-bg"
             >
-              <span className="flex h-12 w-12 items-center justify-center rounded-md bg-primary text-bg">
-                <PillarIcon id={p.id} />
-              </span>
-              <p className="mt-6 text-sm font-semibold text-accent">{p.name}</p>
+              {/* Franja de imagen del pilar */}
+              <div className="relative isolate flex h-36 items-end p-6 text-bg sm:px-7">
+                <Backdrop image={p.image} overlay={pillarTone[p.id]?.overlay} position={p.imagePosition} />
+                <span
+                  className={`flex h-12 w-12 items-center justify-center rounded-md text-bg ${pillarTone[p.id]?.chip ?? "bg-primary"}`}
+                >
+                  <PillarIcon id={p.id} />
+                </span>
+              </div>
+              <div className="flex flex-1 flex-col p-6 sm:p-7">
+              <p className="text-sm font-semibold text-accent">{p.name}</p>
               <h2 id={`${p.id}-title`} className="mt-1 text-2xl font-extrabold leading-tight tracking-tight">
                 {p.title}
               </h2>
               <p className="mt-3 leading-relaxed text-muted">{p.body}</p>
 
-              <ul className="mt-5 flex flex-wrap gap-2" aria-label="Áreas">
-                {p.items.map((item) => (
-                  <li key={item} className="rounded-sm bg-surface px-2.5 py-1 text-sm font-medium text-ink">
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              {p.steps ? (
+                // Pasos numerados: se recorren en este orden
+                <ol className="relative mt-6 space-y-4 pl-1">
+                  <span aria-hidden="true" className="absolute bottom-3 left-[1.05rem] top-3 w-0.5 bg-line" />
+                  {p.steps.map((step, i) => (
+                    <li key={step} className="relative flex items-center gap-3">
+                      <span className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue text-sm font-bold tabular-nums text-bg">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="font-semibold text-ink">{step}</span>
+                    </li>
+                  ))}
+                </ol>
+              ) : (
+                <ul className="mt-5 flex flex-wrap gap-2" aria-label="Áreas">
+                  {p.items.map((item) => (
+                    <li key={item} className="rounded-sm bg-surface px-2.5 py-1 text-sm font-medium text-ink">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              )}
 
               {items.length > 0 && (
                 <div className="mt-7 rounded-md border border-line bg-surface/60 px-4">
@@ -84,7 +108,10 @@ export default function Services() {
                 </div>
               )}
 
-              {p.motto && <p className="mt-6 text-sm font-semibold text-primary">{p.motto}</p>}
+              {p.motto && (
+                <p className="mt-6 rounded-sm bg-primary px-4 py-2.5 text-sm font-semibold text-bg">{p.motto}</p>
+              )}
+              </div>
             </article>
           );
         })}

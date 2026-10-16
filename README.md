@@ -1,4 +1,4 @@
-# Proceso & Código
+# Armartech
 
 Web conjunta de consultoría industrial y formación técnica (Manuel García Gómez) y desarrollo web y aplicaciones (Marianela Marín Mazaira).
 
@@ -18,10 +18,13 @@ npm run lint && npm run typecheck
 
 | Qué | Archivo |
 | --- | --- |
-| Nombre de marca, textos, servicios, equipo, contacto | `src/content/site.ts` |
+| Nombre de marca, textos, menú, servicios, proyectos, equipo, contacto | `src/content/site.ts` |
+| Páginas (una por opción del menú) | `src/app/<ruta>/page.tsx`: servicios, proyectos, como-trabajamos, equipo, contacto |
 | Datos legales (titular, NIF, domicilio) | `legal` en `src/content/site.ts` |
 | Colores y tipografía | `src/app/globals.css` (`@theme`) y `src/app/layout.tsx` |
-| Foto de Manuel | `public/manuel-garcia-gomez.jpg` |
+| Logotipo | `public/brand/` (símbolo, nombre y nombre en blanco); favicon e imagen para redes en `src/app/icon.png`, `apple-icon.png` y `opengraph-image.png` |
+| Fotos del equipo | `public/manuel-garcia-gomez.jpg` y `public/marianela-marin-mazaira.jpg` (si falta, se ven las iniciales) |
+| Imágenes de fondo | `public/images/`: `portada.jpg`, `cabecera.jpg`, `consultoria.jpg`, `web.jpg`, `formacion.jpg` (si falta alguna, se ve un fondo azul con trama técnica) |
 | Envío del formulario | `src/app/api/contact/route.ts` |
 
 ## Formulario de contacto
@@ -32,12 +35,14 @@ npm run lint && npm run typecheck
 
 ## Antes de publicar
 
-- [ ] Elegir el nombre de marca definitivo (`site.name`) y el dominio.
+- [ ] Registrar el dominio de Armartech y comprobar la marca en la OEPM.
 - [ ] Completar titular, NIF y domicilio en `legal` (aviso legal y privacidad, LSSI-CE y RGPD).
-- [ ] Añadir foto de Marianela (`photo` en `team`) o dejar las iniciales.
-- [ ] Confirmar con Manuel que quiere publicar su teléfono.
+- [ ] Añadir `public/marianela-marin-mazaira.jpg`.
+- [ ] Añadir las fotos de fondo en `public/images/` (ver tabla).
+- [ ] Crear el buzón de empresa y cambiar `site.email` en `src/content/site.ts` si no es contacto@armartech.es.
+- [ ] Sustituir el texto del caso de Altoplast (marcado `tag: "ejemplo"`) por la descripción real y pedir permiso a Altoplast y a M-G White Services para nombrarlos.
+- [ ] (Opcional) Para mostrar las soluciones con precios: fijar los precios en `solutions` y poner `show: true` y `draft: false`.
 - [ ] Configurar Resend y probar un envío real.
-- [ ] Añadir `opengraph-image.png` en `src/app/` para compartir en redes.
 
 ## Vista previa sin Next.js
 
@@ -45,7 +50,7 @@ npm run lint && npm run typecheck
 
 ```bash
 cd preview
-tsx --tsconfig tsconfig.json render.tsx      # genera dist/*.body.html
+tsx --tsconfig tsconfig.json render.tsx      # genera dist/pages.json con todas las rutas
 tsx --tsconfig tsconfig.json test-api.mts    # prueba la API de contacto
 node build-preview.mjs                       # HTML de vista previa con Tailwind por CDN
 ```

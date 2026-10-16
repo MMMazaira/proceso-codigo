@@ -13,7 +13,7 @@ const archivo = Archivo({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} | Consultoría industrial y desarrollo web en Barcelona`,
+    default: `${site.name} | Consultoría industrial, desarrollo web y formación técnica`,
     template: `%s | ${site.name}`,
   },
   description: site.description,
@@ -24,7 +24,6 @@ export const metadata: Metadata = {
     title: site.name,
     description: site.description,
   },
-  alternates: { canonical: "/" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

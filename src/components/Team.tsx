@@ -1,22 +1,25 @@
 import Image from "next/image";
 import { team, type Person } from "@/content/site";
+import { publicAsset } from "@/lib/assets";
 
+// Retrato 4:5. Si la foto aún no está en /public se muestran las iniciales.
 function Portrait({ person }: { person: Person }) {
-  if (person.photo) {
+  const src = publicAsset(person.photo);
+  if (src) {
     return (
       <Image
-        src={person.photo}
+        src={src}
         alt={`Retrato de ${person.name}`}
-        width={160}
-        height={160}
-        className="h-20 w-20 shrink-0 rounded-full object-cover object-top"
+        width={224}
+        height={280}
+        className="h-[8.75rem] w-28 shrink-0 rounded-md object-cover object-top"
       />
     );
   }
   return (
     <div
       aria-hidden="true"
-      className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-primary text-xl font-semibold text-bg"
+      className="flex h-[8.75rem] w-28 shrink-0 items-center justify-center rounded-md bg-blueprint text-2xl font-bold text-bg"
     >
       {person.initials}
     </div>

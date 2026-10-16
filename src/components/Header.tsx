@@ -1,15 +1,28 @@
+import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/content/site";
 import NavLinks from "./NavLinks";
 
-export function Logo({ className = "" }: { className?: string }) {
+// Logotipo: símbolo + nombre. "light" usa el nombre en blanco para fondos oscuros.
+export function Logo({ variant = "dark", className = "" }: { variant?: "dark" | "light"; className?: string }) {
   return (
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
-      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true" className="shrink-0">
-        <rect width="26" height="26" rx="4" fill="currentColor" />
-        <path d="M7 9h12M7 13h8M7 17h12" stroke="var(--color-bg)" strokeWidth="2" strokeLinecap="round" />
-      </svg>
-      <span className="font-bold tracking-tight text-ink">{site.name}</span>
+      <span className={variant === "light" ? "rounded-md bg-bg p-1" : ""}>
+        <Image
+          src="/brand/armartech-mark.png"
+          alt=""
+          width={50}
+          height={32}
+          className={variant === "light" ? "h-6 w-auto" : "h-8 w-auto"}
+        />
+      </span>
+      <Image
+        src={variant === "light" ? "/brand/armartech-wordmark-light.png" : "/brand/armartech-wordmark.png"}
+        alt={site.name}
+        width={174}
+        height={18}
+        className="h-[1.05rem] w-auto sm:h-[1.15rem]"
+      />
     </span>
   );
 }
@@ -24,8 +37,8 @@ export default function Header() {
         Saltar al contenido
       </a>
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-4 sm:px-6">
-        <Link href="/" className="text-accent" aria-label={`${site.name}, inicio`}>
-          <Logo className="text-lg" />
+        <Link href="/" aria-label={`${site.name}, inicio`} className="shrink-0">
+          <Logo />
         </Link>
 
         <nav aria-label="Principal" className="hidden lg:block">
@@ -34,7 +47,7 @@ export default function Header() {
 
         <Link
           href="/contacto"
-          className="rounded-sm bg-accent px-4 py-2 text-sm font-semibold text-bg hover:bg-accent-dark"
+          className="hidden rounded-sm bg-accent px-4 py-2 text-sm font-semibold text-bg hover:bg-accent-dark sm:inline-block"
         >
           Solicitar reunión
         </Link>

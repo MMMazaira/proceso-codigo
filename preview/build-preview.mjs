@@ -1,16 +1,21 @@
-import { readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 
 // Vista previa navegable en un solo HTML: cada ruta es un bloque oculto y
 // un pequeño script muestra el que corresponde al hacer clic en un enlace.
 const css = readFileSync("../src/app/globals.css", "utf8").replace('@import "tailwindcss";', "");
-const img = "data:image/jpeg;base64," + readFileSync("../public/manuel-garcia-gomez.jpg").toString("base64");
+// Incrusta como data URI cualquier archivo de /public referenciado en el HTML
+const mime = { jpg: "image/jpeg", jpeg: "image/jpeg", png: "image/png", webp: "image/webp", svg: "image/svg+xml" };
+const inline = (html) =>
+  html.replace(/src="\/([^"]+\.(jpg|jpeg|png|webp|svg))"/g, (m, file, ext) => {
+    if (!existsSync(`../public/${file}`)) return m;
+    return `src="data:${mime[ext]};base64,${readFileSync(`../public/${file}`).toString("base64")}"`;
+  });
 const pages = JSON.parse(readFileSync("dist/pages.json", "utf8"));
 
 const slug = (path) => (path === "/" ? "inicio" : path.slice(1));
 const blocks = Object.entries(pages)
   .map(([path, html]) => {
-    const body = html
-      .replaceAll('src="/manuel-garcia-gomez.jpg"', `src="${img}"`)
+    const body = inline(html)
       .replaceAll('id="contenido"', `id="contenido-${slug(path)}"`)
       .replaceAll('href="#contenido"', `href="#contenido-${slug(path)}"`);
     return `<div data-route="${path}"${path === "/" ? "" : " hidden"}>${body}</div>`;
@@ -55,12 +60,12 @@ const script = `
 })();
 </script>`;
 
-const html = `<title>Proceso &amp; Código</title>
+const html = `<title>Armartech</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.11"></script>
-<style>:root{--font-archivo:"Archivo";color-scheme:light}body{background:#ffffff;color:#121a22;font-family:"Archivo",ui-sans-serif,system-ui,sans-serif}</style>
+<style>:root{--font-archivo:"Archivo";color-scheme:light}body{background:#ffffff;color:#0f1d2b;font-family:"Archivo",ui-sans-serif,system-ui,sans-serif}</style>
 <style type="text/tailwindcss">${css}</style>
 ${blocks}
 ${script}`;
