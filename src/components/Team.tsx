@@ -12,14 +12,14 @@ function Portrait({ person }: { person: Person }) {
         alt={`Retrato de ${person.name}`}
         width={224}
         height={280}
-        className="h-[8.75rem] w-28 shrink-0 rounded-md object-cover object-top"
+        className="h-35 w-28 shrink-0 rounded-md object-cover object-top"
       />
     );
   }
   return (
     <div
       aria-hidden="true"
-      className="flex h-[8.75rem] w-28 shrink-0 items-center justify-center rounded-md bg-blueprint text-2xl font-bold text-bg"
+      className="flex h-35 w-28 shrink-0 items-center justify-center rounded-md bg-blueprint text-2xl font-bold text-bg"
     >
       {person.initials}
     </div>
