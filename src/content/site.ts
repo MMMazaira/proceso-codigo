@@ -245,16 +245,14 @@ export const cases: { heading: string; intro: string; list: Case[] } = {
     "Algunos proyectos que muestran cómo combinamos procesos, tecnología y formación. Pulsa en cada uno para ver el detalle.",
   list: [
     {
-      pillar: "Consultoría",
-      title: "Reorganización de una célula de montaje",
-      client: "Altoplast",
-      problem:
-        "Cambios de referencia lentos, desplazamientos innecesarios y cada turno trabajando a su manera.",
+      pillar: "Formación",
+      title: "Colaboración en acciones formativas",
+      client: "GRUPO VAGINDAUTO",
+      problem: "Acciones formativas técnicas en el ámbito del automóvil.",
       solution:
-        "Estudio de tiempos, implantación de 5S y rediseño del puesto con criterios ergonómicos.",
+        "Colaboramos como formadores, aportando experiencia profesional y conocimientos aplicados al sector del automóvil.",
       result:
-        "Cambios de referencia más rápidos y un estándar de trabajo documentado para todos los turnos.",
-      tag: "ejemplo",
+        "Formaciones que combinan los fundamentos técnicos con la experiencia práctica, con contenidos directamente aplicables al entorno profesional.",
     },
     {
       pillar: "Web y digitalización",
