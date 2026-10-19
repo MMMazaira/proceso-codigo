@@ -10,7 +10,7 @@ export const site = {
   location: "Catalunya",
   locale: "es_ES",
   // Correo único de empresa. Provisional: cámbialo cuando tengas el dominio y el buzón creados.
-  email: "contacto@armartech.es",
+  email: "info@armartechweb.com",
 };
 
 // Imágenes de fondo opcionales. Si el archivo existe en /public se usa;
