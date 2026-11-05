@@ -46,6 +46,8 @@ export type Pillar = {
   image: string;
   // Encuadre de la foto en franjas estrechas (por defecto, centrada)
   imagePosition?: string;
+  // Enlaces a las páginas de detalle del servicio
+  links?: { href: string; label: string }[];
 };
 
 export const services: {
@@ -54,9 +56,9 @@ export const services: {
   pillars: Pillar[];
   closing: string;
 } = {
-  heading: "Tres pilares, una propuesta integral",
+  heading: "Nuestros servicios",
   intro:
-    "Cada proyecto combina lo que necesita: mejorar el proceso, darle soporte digital y formar a las personas que lo hacen funcionar.",
+    "Mejoramos procesos, les damos soporte digital y formamos a las personas que los hacen funcionar. Y con Silver Home llevamos la tecnología útil a los hogares de las personas mayores.",
   pillars: [
     {
       id: "consultoria",
@@ -80,6 +82,12 @@ export const services: {
       ],
       motto: "Diagnosticar, simplificar, mejorar.",
       image: "images/consultoria.jpg",
+      links: [
+        {
+          href: "/consultoria-lean-manufacturing",
+          label: "Ver consultoría Lean",
+        },
+      ],
     },
     {
       id: "web",
@@ -90,12 +98,16 @@ export const services: {
       items: [
         "Creación de páginas web",
         "Mantenimiento web",
-        "Aplicaciones a medida",
+        "Automatizaciones con IA a medida",
         "Partes de producción e incidencias",
         "Indicadores y costes",
         "Gestión documental",
       ],
       image: "images/web.jpg",
+      links: [
+        { href: "/diseno-web-barcelona", label: "Ver diseño web" },
+        { href: "/digitalizacion-industrial", label: "Ver digitalización" },
+      ],
     },
     {
       id: "formacion",
@@ -112,10 +124,22 @@ export const services: {
       ],
       image: "images/formacion.jpg",
       imagePosition: "object-[50%_20%]",
+      links: [{ href: "/formacion-tecnica-empresas", label: "Ver formación" }],
+    },
+    {
+      id: "silver",
+      name: "Silver Home",
+      summary: "Tecnología para personas mayores que viven en casa",
+      title: "Más autonomía en casa",
+      body: "Relojes SOS, tablets adaptadas y sensores de movimiento, humo, fugas de agua y apertura de puertas. Lo instalamos sin obras, lo configuramos, lo explicamos a la persona y a su familia, y damos soporte.",
+      items: ["Relojes SOS", "Tablets adaptadas", "Sensores en el hogar", "Avisos a familiares"],
+      steps: ["Analizamos el hogar", "Instalamos y configuramos", "Formamos y acompañamos"],
+      image: "images/silver-home.jpg",
+      links: [{ href: "/silver-home", label: "Ver Silver Home" }],
     },
   ],
   closing:
-    "Tres pilares complementarios para mejorar procesos, impulsar la presencia digital y desarrollar conocimiento técnico.",
+    "Servicios complementarios para mejorar procesos, impulsar la presencia digital, desarrollar conocimiento técnico y dar más autonomía a las personas mayores en su casa.",
 };
 
 // Paquetes con precio orientativo.
@@ -346,6 +370,79 @@ export const team = {
   ] satisfies Person[],
 };
 
+// Servicio Silver Home: tecnología para personas mayores que viven en casa.
+export const silverHome = {
+  name: "Silver Home",
+  badge: "Servicio Armartech",
+  title: "Silver Home",
+  lead: "Tecnología para vivir en casa con más autonomía, seguridad y tranquilidad.",
+  intro:
+    "Relojes SOS, tablets adaptadas y sensores de movimiento, humo, fugas de agua y apertura de puertas para personas mayores que viven en su domicilio. Nosotros lo instalamos, lo configuramos, lo explicamos y damos soporte.",
+  // Foto opcional: guárdala como public/images/silver-home.jpg (si falta, se ve la trama azul).
+  image: "images/silver-home.jpg",
+  devices: [
+    {
+      id: "reloj",
+      name: "Relojes SOS",
+      body: "Un botón para pedir ayuda desde cualquier lugar de la casa, y aviso a la familia si hace falta.",
+    },
+    {
+      id: "tablet",
+      name: "Tablets adaptadas",
+      body: "Pantalla sencilla para hacer videollamadas, ver fotos y hablar con la familia sin complicaciones.",
+    },
+    {
+      id: "sensor",
+      name: "Sensores en el hogar",
+      body: "Detectores de movimiento, humo, fugas de agua y apertura de puertas, colocados donde realmente hacen falta.",
+    },
+    {
+      id: "aviso",
+      name: "Avisos a familiares",
+      body: "Si algo no va bien, las personas de contacto reciben un aviso en el móvil al momento.",
+    },
+  ],
+  stepsHeading: "Nos ocupamos de todo, no solo de la tecnología",
+  steps: [
+    {
+      title: "Analizamos el hogar",
+      body: "Revisamos accesos, baño, cocina y dormitorio, y escuchamos la rutina y el nivel de autonomía de la persona.",
+    },
+    {
+      title: "Instalamos y configuramos",
+      body: "Elegimos los dispositivos justos, sin obras, y dejamos los avisos y los contactos preparados desde el primer día.",
+    },
+    {
+      title: "Formamos y acompañamos",
+      body: "Lo explicamos a la persona y a su familia con calma, y damos soporte y revisiones periódicas.",
+    },
+  ],
+  families: {
+    heading: "Para familias",
+    points: [
+      "Tranquilidad sin renunciar a que vuestro familiar siga en su casa.",
+      "Dispositivos sencillos, pensados para personas mayores.",
+      "Una sola persona de contacto que se encarga de todo.",
+    ],
+  },
+  partners: {
+    heading: "Para centros, farmacias y servicios de atención",
+    audience: "Centros de día, residencias, ayuda a domicilio, farmacias y ortopedias.",
+    points: [
+      "Complementa vuestro servicio y la teleasistencia que ya tenga la persona.",
+      "Tecnología sencilla, configurada para que sea útil desde el primer día.",
+      "Una única persona de contacto durante todo el proceso.",
+      "Posibilidad de prueba piloto con algunas de las personas a las que atendéis.",
+    ],
+  },
+  cta: {
+    title: "¿Hablamos 30 minutos?",
+    body: "Os presentamos el proyecto y vemos juntos cómo colaborar. Primera reunión sin compromiso.",
+    href: "/contacto",
+    label: "Solicitar una reunión",
+  },
+};
+
 export const homeCta = {
   title: "¿Hablamos de tu proyecto?",
   body: "Una primera reunión sin compromiso para entender qué necesitas.",
@@ -359,6 +456,7 @@ export const contact = {
     "Consultoría de procesos",
     "Web o digitalización",
     "Formación técnica",
+    "Silver Home (personas mayores)",
     "Otro",
   ],
 };

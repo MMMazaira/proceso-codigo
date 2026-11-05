@@ -19,7 +19,7 @@ export const pillarTone: Record<string, { overlay: string; chip: string }> = {
   },
 };
 
-// Portada: los tres pilares con imagen de fondo y una llamada a contacto.
+// Portada: los servicios con imagen de fondo y una llamada a contacto.
 export default function HomeSummary() {
   return (
     <>
@@ -31,7 +31,7 @@ export default function HomeSummary() {
           >
             {services.heading}
           </h2>
-          <ul className="mt-10 grid gap-5 md:grid-cols-3">
+          <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {services.pillars.map((p) => (
               <li key={p.id}>
                 <Link

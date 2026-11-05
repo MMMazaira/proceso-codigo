@@ -5,6 +5,7 @@ Imágenes de fondo de la web (fotos de Canva). Para cambiarlas, sustitúyelas co
   consultoria.jpg  Pilar Consultoría
   web.jpg          Pilar Web y digitalización
   formacion.jpg    Pilar Formación
+  silver-home.jpg  Cabecera de la página Silver Home (opcional)
 
 Formato: JPG horizontal, unos 1920 px de ancho y menos de 400 KB.
 Se ponen con un velo azul encima para que el texto se lea bien.

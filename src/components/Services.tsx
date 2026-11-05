@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { services, solutions, type Package } from "@/content/site";
+import { servicePagesFor, type ServicePage } from "@/content/service-pages";
 import Backdrop from "./Backdrop";
 import { pillarTone } from "./HomeSummary";
 import PillarIcon from "./PillarIcon";
@@ -40,10 +42,33 @@ function SolutionItem({ p }: { p: Package }) {
   );
 }
 
+// Enlaces a las páginas propias de cada servicio (sin repetir la misma dirección).
+function PillarLinks({ links }: { links: { href: string; label: string }[] }) {
+  const unique = links.filter((l, i) => links.findIndex((x) => x.href === l.href) === i);
+  if (unique.length === 0) return null;
+  return (
+    <ul className="mt-6 divide-y divide-line border-y border-line">
+      {unique.map((l) => (
+        <li key={l.href}>
+          <Link
+            href={l.href}
+            className="group flex items-center justify-between gap-3 py-3 font-semibold text-accent hover:text-accent-dark"
+          >
+            {l.label}
+            <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
+              →
+            </span>
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export default function Services() {
   return (
     <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 md:py-20">
-      <div className="grid items-start gap-6 md:grid-cols-3">
+      <div className="grid items-start gap-6 md:grid-cols-2">
         {services.pillars.map((p) => {
           const items = solutions.show ? solutions.list.filter((s) => s.pillar === p.name) : [];
           return (
@@ -107,6 +132,13 @@ export default function Services() {
                   ))}
                 </div>
               )}
+
+              <PillarLinks
+                links={[
+                  ...servicePagesFor(p.id as ServicePage["pillar"]).map((sp) => ({ href: `/${sp.slug}`, label: sp.linkLabel })),
+                  ...(p.links ?? []),
+                ]}
+              />
 
               {p.motto && (
                 <p className="mt-6 rounded-sm bg-primary px-4 py-2.5 text-sm font-semibold text-bg">{p.motto}</p>

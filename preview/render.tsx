@@ -12,6 +12,7 @@ async function main() {
   const routes: Record<string, () => Promise<{ default: React.ComponentType }>> = {
     "/": () => import("@/app/page"),
     "/servicios": () => import("@/app/servicios/page"),
+    "/silver-home": () => import("@/app/silver-home/page"),
     "/proyectos": () => import("@/app/proyectos/page"),
     "/como-trabajamos": () => import("@/app/como-trabajamos/page"),
     "/equipo": () => import("@/app/equipo/page"),
