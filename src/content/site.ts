@@ -4,7 +4,7 @@
 export const site = {
   name: "Armartech",
   tagline: "Ingeniería, digital y formación",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  url: "https://www.armartechweb.com",
   description:
     "Consultoría de procesos, servicios web y formación técnica para pymes e industria en Catalunya. Soluciones para transformar, digitalizar y formar.",
   location: "Catalunya",
@@ -132,8 +132,17 @@ export const services: {
       summary: "Tecnología para personas mayores que viven en casa",
       title: "Más autonomía en casa",
       body: "Relojes SOS, tablets adaptadas y sensores de movimiento, humo, fugas de agua y apertura de puertas. Lo instalamos sin obras, lo configuramos, lo explicamos a la persona y a su familia, y damos soporte.",
-      items: ["Relojes SOS", "Tablets adaptadas", "Sensores en el hogar", "Avisos a familiares"],
-      steps: ["Analizamos el hogar", "Instalamos y configuramos", "Formamos y acompañamos"],
+      items: [
+        "Relojes SOS",
+        "Tablets adaptadas",
+        "Sensores en el hogar",
+        "Avisos a familiares",
+      ],
+      steps: [
+        "Analizamos el hogar",
+        "Instalamos y configuramos",
+        "Formamos y acompañamos",
+      ],
       image: "images/silver-home.jpg",
       links: [{ href: "/silver-home", label: "Ver Silver Home" }],
     },
@@ -427,7 +436,8 @@ export const silverHome = {
   },
   partners: {
     heading: "Para centros, farmacias y servicios de atención",
-    audience: "Centros de día, residencias, ayuda a domicilio, farmacias y ortopedias.",
+    audience:
+      "Centros de día, residencias, ayuda a domicilio, farmacias y ortopedias.",
     points: [
       "Complementa vuestro servicio y la teleasistencia que ya tenga la persona.",
       "Tecnología sencilla, configurada para que sea útil desde el primer día.",

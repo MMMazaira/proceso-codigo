@@ -17,6 +17,10 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description: site.description,
+  alternates: {
+    // Cada página declara su propia URL (con el dominio de site.url) como canónica
+    canonical: "./",
+  },
   openGraph: {
     type: "website",
     locale: site.locale,
@@ -26,7 +30,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="es" className={archivo.variable}>
       <body className="min-h-dvh">{children}</body>
