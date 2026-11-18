@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Archivo } from "next/font/google";
 import { site } from "@/content/site";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -37,7 +38,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" className={archivo.variable}>
-      <body className="min-h-dvh">{children}</body>
+      <body className="min-h-dvh">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
