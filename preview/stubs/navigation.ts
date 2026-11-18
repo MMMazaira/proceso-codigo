@@ -2,3 +2,4 @@
 export function usePathname(): string {
   return ((globalThis as Record<string, unknown>).__PREVIEW_PATH__ as string) ?? "/";
 }
+export function notFound(): never { throw new Error("notFound"); }

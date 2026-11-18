@@ -5,7 +5,7 @@
 export type ServicePage = {
   slug: string;
   // Pilar al que pertenece (debe coincidir con el id en services.pillars de site.ts)
-  pillar: "consultoria" | "web" | "formacion" | "silver";
+  pillar: "automatizaciones" | "consultoria" | "web" | "formacion" | "silver";
   // Texto corto para los enlaces desde la página Servicios
   linkLabel: string;
   title: string;
@@ -19,6 +19,9 @@ export type ServicePage = {
   faqs: { q: string; a: string }[];
   cta: string;
   image: string;
+  // Opcionales: una lista de garantías y una línea de precio orientativo
+  extra?: { heading: string; points: string[] };
+  price?: string;
 };
 
 export const servicePages: ServicePage[] = [
@@ -57,30 +60,49 @@ export const servicePages: ServicePage[] = [
   },
   {
     slug: "automatizaciones-empresas-barcelona",
-    pillar: "web",
-    linkLabel: "Automatizaciones",
-    title: "Automatizaciones para empresas en Barcelona",
-    lead: "Ahorra horas de trabajo repetitivo y reduce errores con procesos automáticos hechos a tu medida.",
-    metaTitle: "Automatizaciones para empresas en Barcelona",
+    pillar: "automatizaciones",
+    linkLabel: "Automatizaciones con IA",
+    title: "Automatizaciones con IA para pymes en Barcelona",
+    lead: "Las tareas repetitivas de tu negocio, hechas solas. Menos horas de oficina y más tiempo para tus clientes.",
+    metaTitle: "Automatizaciones con IA para pymes en Barcelona",
     metaDescription:
-      "Automatizamos facturas, presupuestos, respuestas a clientes, informes y avisos, y conectamos Excel, correo y CRM. Para empresas de Barcelona y Catalunya.",
+      "Automatizamos presupuestos, atención por WhatsApp, citas, facturas y cobros con IA, conectando las herramientas que ya usas. Para pymes y autónomos de Barcelona y Catalunya.",
     problem:
-      "Muchas empresas pierden tiempo copiando datos, enviando correos a mano o preparando informes. Nosotros automatizamos esas tareas para que tu equipo se dedique a lo importante.",
+      "En una pequeña empresa se pierden muchas horas cada semana en lo mismo: preparar presupuestos, contestar las mismas preguntas, apuntar citas, copiar datos de un programa a otro y reclamar facturas. Estudiamos cómo trabaja tu negocio y automatizamos esas tareas con las herramientas que ya usas: tu correo, tu calendario, WhatsApp, tus hojas de cálculo y tu programa de facturación.",
     whatHeading: "¿Qué automatizamos?",
     what: [
-      "Facturas y presupuestos",
-      "Respuestas a clientes",
-      "Informes",
-      "Conexión entre herramientas como Excel, correo y CRM",
-      "Avisos automáticos",
+      "Presupuestos en minutos: dictas la visita en el móvil y recibes el presupuesto en PDF con tus precios",
+      "Atención y citas: un asistente responde por WhatsApp o desde la web y apunta la cita en tu agenda",
+      "Facturas y cobros: se envían solas y los recordatorios de pago también",
+      "Datos sin copiar a mano: pedidos, formularios y correos que pasan solos a tu hoja o tu programa",
+      "Informes y avisos: un resumen semanal en tu correo y avisos cuando pasa algo importante",
+      "A medida: si una tarea se repite en tu negocio, la estudiamos",
     ],
-    how: ["Analizamos tus procesos", "Diseñamos la solución", "La ponemos en marcha", "Te damos soporte"],
+    how: [
+      "Diagnóstico gratuito de tus tareas",
+      "Propuesta cerrada con plazo y precio",
+      "Puesta en marcha en 1-2 semanas",
+      "Mantenimiento mensual",
+    ],
+    extra: {
+      heading: "Tranquilidad y seguridad",
+      points: [
+        "Funciona en la nube las 24 horas, aunque tengas el ordenador apagado. No hay que instalar nada.",
+        "Tus cuentas y tus datos son tuyos: si un día lo dejas, todo sigue siendo tuyo.",
+        "Cumplimos el RGPD y firmamos contigo un contrato de tratamiento de datos.",
+        "Una sola persona de contacto que conoce tu negocio.",
+      ],
+    },
+    price: "Puesta en marcha desde 450 € y mantenimiento desde 39 € al mes (sin IVA). En el diagnóstico te damos el precio exacto.",
     faqs: [
-      { q: "¿Cuánto tarda?", a: "Normalmente entre una y cuatro semanas." },
-      { q: "¿Necesito conocimientos técnicos?", a: "No, nosotros nos encargamos de todo." },
+      { q: "¿Necesito saber de informática?", a: "No. Te dejamos todo funcionando y te enseñamos a usarlo en una sesión corta." },
+      { q: "¿Tengo que cambiar los programas que uso?", a: "Normalmente no. Conectamos lo que ya tienes: Gmail, Outlook, Google Calendar, WhatsApp Business, hojas de cálculo y los programas de facturación más habituales." },
+      { q: "¿Qué pasa si algo deja de funcionar?", a: "Con el mantenimiento mensual lo vigilamos nosotros y lo arreglamos sin coste adicional." },
+      { q: "¿La IA se puede equivocar?", a: "Por eso las tareas importantes, como un presupuesto, siempre pasan por tu revisión antes de enviarse." },
+      { q: "¿Cuánto tiempo se tarda?", a: "Entre una y dos semanas por automatización." },
     ],
     cta: "Pide tu diagnóstico gratuito",
-    image: "images/web.jpg",
+    image: "images/cabecera.jpg",
   },
   {
     slug: "consultoria-web-barcelona",

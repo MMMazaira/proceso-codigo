@@ -16,7 +16,7 @@ export default function ServiceDetail({ page }: { page: ServicePage }) {
               Servicios
             </Link>
           </li>
-          {pillar && (
+          {pillar && pillar.name !== page.linkLabel && (
             <li>
               <span aria-hidden="true">/ </span>
               <Link href={`/servicios#${pillar.id}`} className="hover:text-ink hover:underline underline-offset-4">
@@ -53,6 +53,28 @@ export default function ServiceDetail({ page }: { page: ServicePage }) {
           </div>
         </div>
       </section>
+
+      {(page.extra || page.price) && (
+        <section className="bg-surface">
+          <div className="mx-auto max-w-6xl px-4 pb-14 sm:px-6 md:pb-20">
+            {page.extra && (
+              <>
+                <h2 className="text-2xl font-extrabold tracking-tight text-ink">{page.extra.heading}</h2>
+                <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+                  {page.extra.points.map((pt) => (
+                    <li key={pt} className="rounded-md border border-line bg-bg p-5 leading-relaxed text-ink">
+                      {pt}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+            {page.price && (
+              <p className="mt-6 border-l-4 border-accent bg-bg px-5 py-4 font-semibold text-ink">{page.price}</p>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* Cómo trabajamos */}
       <section aria-labelledby="como">
@@ -100,10 +122,10 @@ export default function ServiceDetail({ page }: { page: ServicePage }) {
         <div className="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-14 sm:px-6 md:flex-row md:items-center md:justify-between">
           <div>
             <h2 className="text-2xl font-extrabold tracking-tight md:text-3xl">¿Hablamos?</h2>
-            <p className="mt-2 max-w-xl text-bg/85">Primera reunión sin compromiso, presencial en toda Catalunya u online.</p>
+            <p className="mt-2 max-w-xl text-bg/85">Diagnóstico gratuito y sin compromiso, presencial en toda Catalunya u online.</p>
           </div>
           <Link
-            href="/contacto"
+            href="/contacto?tema=diagnostico"
             className="shrink-0 self-start rounded-sm bg-teal px-5 py-3 font-semibold text-primary-dark hover:bg-bg md:self-auto"
           >
             {page.cta}

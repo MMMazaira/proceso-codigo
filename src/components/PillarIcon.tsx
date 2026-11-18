@@ -1,5 +1,28 @@
 // Iconos de línea sencillos, uno por pilar
 const paths: Record<string, React.ReactNode> = {
+  automatizaciones: (
+    <>
+      <path d="M13 2.8 5.5 13.2h5.6L10 21.2l8.5-11h-5.8L13 2.8Z" />
+    </>
+  ),
+  documento: (
+    <>
+      <path d="M6 2.8h8.5L19 7.3V21.2H6V2.8Z" />
+      <path d="M14.5 2.8v4.5H19M9 12h7M9 15.5h7M9 8.5h3" />
+    </>
+  ),
+  chat: (
+    <>
+      <path d="M4 5h16v11H9.5L5 20v-4H4V5Z" />
+      <path d="M8 9.5h8M8 12.5h5" />
+    </>
+  ),
+  euro: (
+    <>
+      <circle cx="12" cy="12" r="9.2" />
+      <path d="M15.5 8.4a4.2 4.2 0 1 0 0 7.2M7.5 10.8h6M7.5 13.2h6" />
+    </>
+  ),
   consultoria: (
     <>
       <circle cx="12" cy="12" r="3.2" />

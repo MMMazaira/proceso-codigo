@@ -13,7 +13,7 @@ const archivo = Archivo({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} | Consultoría industrial, desarrollo web y formación técnica`,
+    default: `${site.name} | Automatizaciones con IA, Lean y desarrollo web para pymes`,
     template: `%s | ${site.name}`,
   },
   description: site.description,

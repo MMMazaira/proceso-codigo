@@ -3,10 +3,10 @@
 
 export const site = {
   name: "Armartech",
-  tagline: "Ingeniería, digital y formación",
+  tagline: "Lean, automatización con IA y desarrollo web",
   url: "https://www.armartechweb.com",
   description:
-    "Consultoría de procesos, servicios web y formación técnica para pymes e industria en Catalunya. Soluciones para transformar, digitalizar y formar.",
+    "Mejoramos los procesos de tu empresa con Lean Manufacturing, automatizamos las tareas repetitivas con IA y desarrollamos webs y aplicaciones a medida. Para pymes y autónomos de Catalunya.",
   location: "Catalunya",
   locale: "es_ES",
   // Correo único de empresa. Provisional: cámbialo cuando tengas el dominio y el buzón creados.
@@ -21,17 +21,23 @@ export const images = {
 };
 
 export const nav = [
+  { href: "/automatizaciones-empresas-barcelona", label: "Automatizaciones" },
   { href: "/servicios", label: "Servicios" },
-  { href: "/como-trabajamos", label: "Cómo trabajamos" },
-  { href: "/equipo", label: "Equipo" },
   { href: "/proyectos", label: "Proyectos" },
+  { href: "/equipo", label: "Equipo" },
   { href: "/contacto", label: "Contacto" },
 ];
 
+// Acción principal de toda la web: pedir el diagnóstico gratuito
+export const diagnosticoTema = "Diagnóstico gratuito";
+export const ctaDiagnostico = { href: "/contacto?tema=diagnostico", label: "Diagnóstico gratuito" };
+
 export const hero = {
-  titleLead: "Soluciones para",
-  titleMain: "transformar, digitalizar y formar",
-  lead: "Consultoría, servicios web y formación técnica para pymes e industria. Un mismo equipo para mejorar cómo trabajáis, cómo os encuentran y lo que sabe vuestro equipo.",
+  titleLead: "Menos tareas repetitivas,",
+  titleMain: "más tiempo para tu negocio",
+  lead: "Primero eliminamos lo que sobra en tus procesos con Lean Manufacturing. Después automatizamos con IA lo que se repite: presupuestos, citas, facturas y cobros. Y si lo necesitas, desarrollamos tu web o tu aplicación.",
+  cta: { href: "#diagnostico", label: "Pide tu diagnóstico gratuito" },
+  note: "Sin compromiso · Respuesta en 2 días laborables",
 };
 export type Pillar = {
   id: string;
@@ -48,6 +54,8 @@ export type Pillar = {
   imagePosition?: string;
   // Enlaces a las páginas de detalle del servicio
   links?: { href: string; label: string }[];
+  // Servicio principal: aparece en la portada
+  destacado?: boolean;
 };
 
 export const services: {
@@ -58,12 +66,28 @@ export const services: {
 } = {
   heading: "Nuestros servicios",
   intro:
-    "Mejoramos procesos, les damos soporte digital y formamos a las personas que los hacen funcionar. Y con Silver Home llevamos la tecnología útil a los hogares de las personas mayores.",
+    "Primero simplificamos tus procesos, después automatizamos lo que se repite y desarrollamos las herramientas que te faltan. También formamos a tu equipo y, con Silver Home, llevamos la tecnología útil a los hogares de las personas mayores.",
   pillars: [
     {
+      id: "automatizaciones",
+      name: "Automatizaciones con IA",
+      summary: "Las tareas repetitivas de tu negocio, hechas solas",
+      title: "Automatizaciones con IA",
+      body: "Presupuestos en minutos, clientes atendidos por WhatsApp, citas en tu agenda y facturas que se cobran sin perseguir a nadie. Conectamos las herramientas que ya usas.",
+      items: [
+        "Presupuestos con IA",
+        "Atención y citas por WhatsApp",
+        "Facturas y cobros",
+        "Datos sin copiar a mano",
+        "Informes y avisos",
+      ],
+      image: "images/cabecera.jpg",
+      destacado: true,
+    },
+    {
       id: "consultoria",
-      name: "Consultoría",
-      summary: "Mejora de la actividad y los procesos",
+      name: "Consultoría Lean",
+      summary: "Elimina lo que sobra en tus procesos y reduce costes",
       title: "Consultoría para optimizar",
       body: "Analizamos el trabajo real para convertir cada operación en un sistema más ágil, seguro y eficiente.",
       items: [
@@ -82,6 +106,7 @@ export const services: {
       ],
       motto: "Diagnosticar, simplificar, mejorar.",
       image: "images/consultoria.jpg",
+      destacado: true,
       links: [
         {
           href: "/consultoria-lean-manufacturing",
@@ -91,19 +116,20 @@ export const services: {
     },
     {
       id: "web",
-      name: "Web y digitalización",
+      name: "Webs y aplicaciones",
       summary: "Webs y aplicaciones que trabajan para la empresa",
-      title: "Presencia web y digitalización",
+      title: "Webs, aplicaciones y digitalización",
       body: "Diseño, desarrollo y soporte continuo de webs y aplicaciones. También digitalizamos procesos de planta para dejar atrás el papel y las hojas de cálculo.",
       items: [
         "Creación de páginas web",
         "Mantenimiento web",
-        "Automatizaciones con IA a medida",
+        "Aplicaciones a medida",
         "Partes de producción e incidencias",
         "Indicadores y costes",
         "Gestión documental",
       ],
       image: "images/web.jpg",
+      destacado: true,
       links: [
         { href: "/diseno-web-barcelona", label: "Ver diseño web" },
         { href: "/digitalizacion-industrial", label: "Ver digitalización" },
@@ -453,18 +479,63 @@ export const silverHome = {
   },
 };
 
-export const homeCta = {
-  title: "¿Hablamos de tu proyecto?",
-  body: "Una primera reunión sin compromiso para entender qué necesitas.",
-  cta: { href: "/contacto", label: "Solicitar una reunión" },
+// Portada
+export const home = {
+  serviciosTitulo: "Tres formas de ahorrar tiempo y dinero",
+  automatizacionesTitulo: "Lo que más tiempo te quita, automatizado",
+  automatizaciones: [
+    {
+      icono: "documento",
+      problema: "Tardas días en enviar un presupuesto y el cliente contrata a otro.",
+      solucion: "Dictas la visita en el móvil y la IA prepara el presupuesto en PDF con tus precios.",
+      ahorro: "3-5 h a la semana",
+    },
+    {
+      icono: "chat",
+      problema: "Mientras trabajas no puedes contestar llamadas ni WhatsApp.",
+      solucion: "Un asistente responde las dudas habituales, recoge los datos y apunta la cita en tu agenda.",
+      ahorro: "3-4 h a la semana",
+    },
+    {
+      icono: "euro",
+      problema: "Facturas tarde y pasas horas reclamando pagos.",
+      solucion: "Las facturas salen solas desde tu programa y los recordatorios de pago también.",
+      ahorro: "2-4 h al mes",
+    },
+  ],
+  pasosTitulo: "Cómo trabajamos",
+  pasos: [
+    { titulo: "Diagnóstico gratuito", texto: "Vemos qué tareas y procesos os quitan más tiempo y cuántas horas podéis ahorrar." },
+    { titulo: "Propuesta cerrada", texto: "Una solución concreta, con plazo y precio por escrito." },
+    { titulo: "Puesta en marcha", texto: "La montamos en una o dos semanas y la probamos con vuestros datos reales." },
+    { titulo: "Seguimiento", texto: "Vigilamos que todo funcione, ajustamos y ampliamos cuando lo necesitéis." },
+  ],
+  garantias: [
+    "Funciona en la nube las 24 horas, sin instalar nada",
+    "Tus cuentas y tus datos siguen siendo tuyos",
+    "Cumplimos el RGPD",
+    "Una sola persona de contacto",
+  ],
+  diagnostico: {
+    titulo: "Pide tu diagnóstico gratuito",
+    texto: "Cuéntanos a qué se dedica tu empresa y qué tarea te gustaría no volver a hacer a mano. Te respondemos en 2 días laborables.",
+    incluye: [
+      "Qué tareas y procesos se pueden simplificar o automatizar",
+      "Cuántas horas al mes podrías ahorrar",
+      "Una propuesta con plazo y precio, sin compromiso",
+    ],
+  },
+  otrosTitulo: "También hacemos",
 };
 
 export const contact = {
   heading: "Contacto",
-  body: "Cuéntanos qué quieres mejorar y te proponemos una primera reunión sin compromiso. Trabajamos de forma presencial en toda Catalunya, híbrida u online.",
+  body: "Cuéntanos qué quieres mejorar y te preparamos un diagnóstico gratuito, sin compromiso. Trabajamos de forma presencial en toda Catalunya, híbrida u online.",
   topics: [
-    "Consultoría de procesos",
-    "Web o digitalización",
+    "Diagnóstico gratuito",
+    "Automatizaciones con IA",
+    "Consultoría Lean / procesos",
+    "Web o aplicación",
     "Formación técnica",
     "Silver Home (personas mayores)",
     "Otro",

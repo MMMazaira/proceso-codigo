@@ -14,6 +14,11 @@ export default function Footer() {
         </div>
         <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
           <li>
+            <Link href="/como-trabajamos" className="hover:text-bg hover:underline underline-offset-4">
+              Cómo trabajamos
+            </Link>
+          </li>
+          <li>
             <Link href="/aviso-legal" className="hover:text-bg hover:underline underline-offset-4">
               Aviso legal
             </Link>

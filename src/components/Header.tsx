@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { site } from "@/content/site";
+import { ctaDiagnostico, site } from "@/content/site";
 import NavLinks from "./NavLinks";
 
 // Logotipo: símbolo + nombre. "light" usa el nombre en blanco para fondos oscuros.
@@ -46,10 +46,10 @@ export default function Header() {
         </nav>
 
         <Link
-          href="/contacto"
+          href={ctaDiagnostico.href}
           className="hidden rounded-sm bg-accent px-4 py-2 text-sm font-semibold text-bg hover:bg-accent-dark sm:inline-block"
         >
-          Solicitar reunión
+          {ctaDiagnostico.label}
         </Link>
       </div>
 

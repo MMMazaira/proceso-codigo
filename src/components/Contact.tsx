@@ -1,7 +1,7 @@
-import { contact, site } from "@/content/site";
+import { contact, diagnosticoTema, site } from "@/content/site";
 import ContactForm from "./ContactForm";
 
-export default function Contact() {
+export default function Contact({ diagnostico = false }: { diagnostico?: boolean }) {
   return (
     <section className="bg-surface">
       <div className="mx-auto grid max-w-6xl gap-12 px-4 py-14 sm:px-6 md:py-20 lg:grid-cols-[1fr_1.6fr] lg:gap-16">
@@ -24,7 +24,11 @@ export default function Contact() {
         </div>
 
         <div className="rounded-lg border border-line bg-bg p-6 sm:p-8">
-          <ContactForm topics={contact.topics} />
+          <ContactForm
+            topics={contact.topics}
+            defaultTopic={diagnostico ? diagnosticoTema : ""}
+            submitLabel={diagnostico ? "Pedir diagnóstico gratuito" : "Enviar mensaje"}
+          />
         </div>
       </div>
     </section>

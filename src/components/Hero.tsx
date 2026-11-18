@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { hero, images, site } from "@/content/site";
 import { publicAsset } from "@/lib/assets";
 import Backdrop from "./Backdrop";
@@ -10,7 +11,11 @@ export default function Hero() {
       aria-labelledby="hero-title"
       className="relative isolate overflow-hidden text-bg"
     >
-      <Backdrop image={images.hero} priority />
+      <Backdrop
+        image={images.hero}
+        priority
+        overlay="bg-gradient-to-b from-primary-dark/90 via-primary/85 to-primary/75 md:bg-gradient-to-r md:from-primary-dark/95 md:via-primary/80 md:to-primary/30"
+      />
       {/* Símbolo de la marca como marca de agua, solo cuando no hay foto */}
       {!hasPhoto && (
         <Image
@@ -34,6 +39,15 @@ export default function Hero() {
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-bg/85 md:text-xl">
           {hero.lead}
         </p>
+        <div className="mt-9 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-5">
+          <Link
+            href={hero.cta.href}
+            className="rounded-sm bg-teal px-6 py-3.5 text-lg font-bold text-primary-dark hover:bg-bg"
+          >
+            {hero.cta.label}
+          </Link>
+          <span className="text-sm text-bg/75">{hero.note}</span>
+        </div>
       </div>
     </section>
   );

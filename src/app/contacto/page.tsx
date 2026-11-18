@@ -5,11 +5,17 @@ import { contact } from "@/content/site";
 
 export const metadata: Metadata = { title: "Contacto", description: contact.body };
 
-export default function ContactoPage() {
+// ?tema=diagnostico deja preseleccionado el diagnóstico gratuito en el formulario
+export default async function ContactoPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ tema?: string }>;
+}) {
+  const { tema } = await searchParams;
   return (
     <PageShell>
       <PageIntro title={contact.heading} intro={contact.body} />
-      <Contact />
+      <Contact diagnostico={tema === "diagnostico"} />
     </PageShell>
   );
 }

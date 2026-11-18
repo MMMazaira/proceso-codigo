@@ -19,13 +19,20 @@ async function main() {
     "/contacto": () => import("@/app/contacto/page"),
     "/privacidad": () => import("@/app/privacidad/page"),
     "/aviso-legal": () => import("@/app/aviso-legal/page"),
+    "/automatizaciones-empresas-barcelona": () => import("@/app/[slug]/page"),
+    "/consultoria-lean-manufacturing": () => import("@/app/[slug]/page"),
   };
   mkdirSync("dist", { recursive: true });
   const out: Record<string, string> = {};
   for (const [path, load] of Object.entries(routes)) {
     (globalThis as Record<string, unknown>).__PREVIEW_PATH__ = path;
-    const Page = (await load()).default;
-    out[path] = renderToStaticMarkup(<Page />);
+    // Las páginas pueden ser asíncronas y recibir params/searchParams
+    const Page = (await load()).default as unknown as (p: object) => Promise<React.ReactElement> | React.ReactElement;
+    const el = await Page({
+      params: Promise.resolve({ slug: path.slice(1) }),
+      searchParams: Promise.resolve({ tema: path === "/contacto" ? "diagnostico" : undefined }),
+    });
+    out[path] = renderToStaticMarkup(el);
     console.log(path.padEnd(18), out[path].length, "chars");
   }
   writeFileSync("dist/pages.json", JSON.stringify(out));

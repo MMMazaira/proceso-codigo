@@ -8,7 +8,19 @@ type Status = "idle" | "sending" | "sent" | "error";
 const fieldClass =
   "mt-1.5 block w-full border border-line bg-bg px-3 py-2.5 text-ink placeholder:text-muted/70 focus:border-primary aria-[invalid=true]:border-red-700";
 
-export default function ContactForm({ topics }: { topics: string[] }) {
+export default function ContactForm({
+  topics,
+  defaultTopic = "",
+  submitLabel = "Enviar mensaje",
+  messageLabel = "Qué necesitas",
+  messagePlaceholder = "Por ejemplo: queremos dejar de hacer los presupuestos a mano.",
+}: {
+  topics: string[];
+  defaultTopic?: string;
+  submitLabel?: string;
+  messageLabel?: string;
+  messagePlaceholder?: string;
+}) {
   const [errors, setErrors] = useState<ContactErrors>({});
   const [status, setStatus] = useState<Status>("idle");
   const [serverMessage, setServerMessage] = useState("");
@@ -107,7 +119,7 @@ export default function ContactForm({ topics }: { topics: string[] }) {
         </div>
         <div>
           <label htmlFor="topic" className="font-semibold">Tipo de consulta</label>
-          <select id="topic" name="topic" required defaultValue="" className={fieldClass} {...a11y("topic")}>
+          <select id="topic" name="topic" required defaultValue={topics.includes(defaultTopic) ? defaultTopic : ""} className={fieldClass} {...a11y("topic")}>
             <option value="" disabled>
               Elige una opción
             </option>
@@ -122,13 +134,13 @@ export default function ContactForm({ topics }: { topics: string[] }) {
       </div>
 
       <div>
-        <label htmlFor="message" className="font-semibold">Qué necesitas</label>
+        <label htmlFor="message" className="font-semibold">{messageLabel}</label>
         <textarea
           id="message"
           name="message"
           rows={5}
           required
-          placeholder="Por ejemplo: queremos dejar de registrar las incidencias de línea en papel."
+          placeholder={messagePlaceholder}
           className={fieldClass}
           {...a11y("message")}
         />
@@ -169,7 +181,7 @@ export default function ContactForm({ topics }: { topics: string[] }) {
           disabled={status === "sending"}
           className="rounded-sm bg-accent px-6 py-3 font-semibold text-bg hover:bg-accent-dark disabled:opacity-60"
         >
-          {status === "sending" ? "Enviando…" : "Enviar mensaje"}
+          {status === "sending" ? "Enviando…" : submitLabel}
         </button>
       </div>
     </form>
