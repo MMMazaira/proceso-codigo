@@ -17,6 +17,17 @@ export default function Contact({ diagnostico = false }: { diagnostico?: boolean
               </dd>
             </div>
             <div>
+              <dt className="text-sm text-muted">Teléfono y WhatsApp</dt>
+              <dd className="flex flex-wrap gap-x-4">
+                <a href={site.phoneHref} className="font-medium text-primary underline-offset-4 hover:underline">
+                  {site.phone}
+                </a>
+                <a href={site.whatsapp} target="_blank" rel="noopener noreferrer" className="font-medium text-primary underline-offset-4 hover:underline">
+                  Escribir por WhatsApp
+                </a>
+              </dd>
+            </div>
+            <div>
               <dt className="text-sm text-muted">Ubicación</dt>
               <dd className="font-medium">{site.location}</dd>
             </div>

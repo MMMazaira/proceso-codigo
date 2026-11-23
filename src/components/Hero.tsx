@@ -28,7 +28,7 @@ export default function Hero() {
         />
       )}
       <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 md:py-28">
-        <p className="text-sm font-semibold text-teal">{site.tagline}</p>
+        <p className="text-sm font-semibold text-teal">{hero.eyebrow ?? site.tagline}</p>
         <h1
           id="hero-title"
           className="mt-4 max-w-3xl text-[clamp(2.4rem,6vw,4.4rem)] leading-[1.02] tracking-[-0.025em]"

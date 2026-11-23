@@ -9,9 +9,12 @@ const jsonLd = {
   name: site.name,
   description: site.description,
   url: site.url,
-  areaServed: "Barcelona",
+  image: `${site.url}${site.ogImage}`,
+  areaServed: ["Piera", "Anoia", "Baix Llobregat", "Barcelona"],
   email: site.email,
-  address: { "@type": "PostalAddress", addressLocality: "Barcelona", addressCountry: "ES" },
+  telephone: "+34656332568",
+  address: { "@type": "PostalAddress", addressLocality: "Piera", addressRegion: "Barcelona", addressCountry: "ES" },
+  sameAs: site.sameAs,
   founder: team.people.map((p) => ({ "@type": "Person", name: p.name, jobTitle: p.role })),
 };
 

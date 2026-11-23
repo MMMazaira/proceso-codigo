@@ -5,12 +5,24 @@ export const site = {
   name: "Armartech",
   tagline: "Lean, automatización con IA y desarrollo web",
   url: "https://www.armartechweb.com",
+  // Descripción para Google y redes (máximo unos 155 caracteres)
   description:
-    "Mejoramos los procesos de tu empresa con Lean Manufacturing, automatizamos las tareas repetitivas con IA y desarrollamos webs y aplicaciones a medida. Para pymes y autónomos de Catalunya.",
-  location: "Catalunya",
+    "Automatizaciones con IA para talleres, instaladores y pymes del Anoia y Barcelona: presupuestos, citas, facturas y cobros. Diagnóstico gratuito.",
+  location: "Piera (Barcelona) · Anoia, Baix Llobregat y Barcelona",
   locale: "es_ES",
   // Correo único de empresa. Provisional: cámbialo cuando tengas el dominio y el buzón creados.
   email: "info@armartechweb.com",
+  // Teléfono de contacto: el mismo que en el Perfil de Empresa de Google
+  phone: "656 33 25 68",
+  phoneHref: "tel:+34656332568",
+  whatsapp: "https://wa.me/34656332568?text=Hola%20Marianela%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20diagn%C3%B3stico%20gratuito",
+  // Perfiles en redes (para Google)
+  sameAs: [
+    "https://www.instagram.com/armartechweb",
+    "https://www.linkedin.com/in/marianela-mar%C3%ADn-mazaira",
+  ],
+  // Imagen que se ve al compartir la web en LinkedIn, WhatsApp, etc. (1200 x 630 px)
+  ogImage: "/og-armartech.png",
 };
 
 // Imágenes de fondo opcionales. Si el archivo existe en /public se usa;
@@ -34,9 +46,11 @@ export const diagnosticoTema = "Diagnóstico gratuito";
 export const ctaDiagnostico = { href: "/contacto?tema=diagnostico", label: "Diagnóstico gratuito" };
 
 export const hero = {
+  // Frase pequeña encima del título: a quién va dirigida la web
+  eyebrow: "Para talleres, instaladores y pequeñas empresas del Anoia y el Baix Llobregat",
   titleLead: "Menos tareas repetitivas,",
   titleMain: "más tiempo para tu negocio",
-  lead: "Primero eliminamos lo que sobra en tus procesos con Lean Manufacturing. Después automatizamos con IA lo que se repite: presupuestos, citas, facturas y cobros. Y si lo necesitas, desarrollamos tu web o tu aplicación.",
+  lead: "Automatizamos con IA lo que te quita horas cada semana: presupuestos, citas, facturas y cobros. Si tu taller o tu fábrica necesita ordenar sus procesos, empezamos por Lean Manufacturing. En persona desde Piera y con precio cerrado.",
   cta: { href: "#diagnostico", label: "Quiero ahorrar tiempo" },
   note: "Sin compromiso · Respuesta en 2 días laborables",
 };
@@ -272,7 +286,7 @@ export const solutions: {
       pillar: "Formación",
       name: "Curso in-company",
       description:
-        "Formación técnica adaptada a vuestro equipo y a vuestras instalaciones.",
+        "Formación técnica adaptada a tu equipo y a tus instalaciones.",
       includes: [
         "Lean, 5S, riesgo eléctrico o vehículo eléctrico",
         "Material didáctico propio",
@@ -453,7 +467,7 @@ export const silverHome = {
   families: {
     heading: "Para familias",
     points: [
-      "Tranquilidad sin renunciar a que vuestro familiar siga en su casa.",
+      "Tranquilidad sin renunciar a que tu familiar siga en su casa.",
       "Dispositivos sencillos, pensados para personas mayores.",
       "Una sola persona de contacto que se encarga de todo.",
     ],
@@ -463,7 +477,7 @@ export const silverHome = {
     audience:
       "Centros de día, residencias, ayuda a domicilio, farmacias y ortopedias.",
     points: [
-      "Complementa vuestro servicio y la teleasistencia que ya tenga la persona.",
+      "Complementa el servicio y la teleasistencia que ya tenga la persona.",
       "Tecnología sencilla, configurada para que sea útil desde el primer día.",
       "Una única persona de contacto durante todo el proceso.",
       "Posibilidad de prueba piloto con algunas de las personas a las que atendéis.",
@@ -503,10 +517,10 @@ export const home = {
   ],
   pasosTitulo: "Cómo trabajamos",
   pasos: [
-    { titulo: "Diagnóstico gratuito", texto: "Vemos qué tareas y procesos os quitan más tiempo y cuántas horas podéis ahorrar." },
+    { titulo: "Diagnóstico gratuito", texto: "Vemos qué tareas y procesos te quitan más tiempo y cuántas horas puedes ahorrar." },
     { titulo: "Propuesta cerrada", texto: "Una solución concreta, con plazo y precio por escrito." },
-    { titulo: "Puesta en marcha", texto: "La montamos en una o dos semanas y la probamos con vuestros datos reales." },
-    { titulo: "Seguimiento", texto: "Vigilamos que todo funcione, ajustamos y ampliamos cuando lo necesitéis." },
+    { titulo: "Puesta en marcha", texto: "La montamos en una o dos semanas y la probamos con tus datos reales." },
+    { titulo: "Seguimiento", texto: "Vigilamos que todo funcione, ajustamos y ampliamos cuando lo necesites." },
   ],
   garantias: [
     "Funciona en la nube las 24 horas, sin instalar nada",

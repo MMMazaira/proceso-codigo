@@ -14,7 +14,7 @@ const archivo = Archivo({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} | Automatizaciones con IA, Lean y desarrollo web para pymes`,
+    default: `Automatizaciones con IA para pymes en el Anoia | ${site.name}`,
     template: `%s | ${site.name}`,
   },
   description: site.description,
@@ -28,7 +28,9 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: site.name,
     description: site.description,
+    images: [{ url: site.ogImage, width: 1200, height: 630, alt: "Armartech: automatizaciones con IA para pymes" }],
   },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({

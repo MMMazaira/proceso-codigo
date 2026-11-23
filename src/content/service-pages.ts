@@ -258,8 +258,8 @@ export const servicePages: ServicePage[] = [
     ],
     how: [
       "Analizamos las necesidades del equipo",
-      "Adaptamos el programa a vuestras instalaciones",
-      "Impartimos la formación, en vuestra empresa o en un centro",
+      "Adaptamos el programa a tus instalaciones",
+      "Impartimos la formación, en tu empresa o en un centro",
       "Evaluamos y entregamos certificado de asistencia",
     ],
     faqs: [

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { contact, diagnosticoTema, home, services } from "@/content/site";
+import { contact, diagnosticoTema, home, services, site } from "@/content/site";
 import Backdrop from "./Backdrop";
 import ContactForm from "./ContactForm";
 import PillarIcon from "./PillarIcon";
@@ -154,6 +154,17 @@ export default function HomeSummary() {
                 </li>
               ))}
             </ul>
+            <p className="mt-8 leading-relaxed text-ink">
+              ¿Prefieres hablar? Llámame al{" "}
+              <a href={site.phoneHref} className="font-semibold text-accent underline-offset-4 hover:underline">
+                {site.phone}
+              </a>{" "}
+              o{" "}
+              <a href={site.whatsapp} target="_blank" rel="noopener noreferrer" className="font-semibold text-accent underline-offset-4 hover:underline">
+                escríbeme por WhatsApp
+              </a>
+              .
+            </p>
           </div>
           <div className="rounded-lg border border-line bg-bg p-6 sm:p-8">
             <ContactForm

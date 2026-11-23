@@ -163,7 +163,7 @@ export default function ContactForm({
           />
           <span className="text-sm leading-relaxed text-muted">
             He leído la <a href="/privacidad" className="font-semibold text-ink underline underline-offset-4">política de privacidad</a> y
-            acepto que uséis mis datos para responder a esta consulta.
+            acepto que Armartech use mis datos para responder a esta consulta.
           </span>
         </label>
         {err("consent")}

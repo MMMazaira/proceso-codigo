@@ -2,6 +2,7 @@ import { images } from "@/content/site";
 import Backdrop from "./Backdrop";
 import Header from "./Header";
 import Footer from "./Footer";
+import WhatsAppButton from "./WhatsAppButton";
 
 // Estructura común de todas las páginas: cabecera, contenido y pie.
 export default function PageShell({ children }: { children: React.ReactNode }) {
@@ -10,6 +11,7 @@ export default function PageShell({ children }: { children: React.ReactNode }) {
       <Header />
       <main id="contenido">{children}</main>
       <Footer />
+      <WhatsAppButton />
     </>
   );
 }

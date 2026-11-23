@@ -10,7 +10,16 @@ export default function Footer() {
         <div>
           <Logo variant="light" />
           <p className="mt-3 text-sm">{site.tagline}</p>
-          <p className="mt-1 text-sm">{site.email}</p>
+          <p className="mt-1 text-sm">
+            {site.email} ·{" "}
+            <a href={site.phoneHref} className="hover:text-bg hover:underline underline-offset-4">
+              {site.phone}
+            </a>{" "}
+            ·{" "}
+            <a href={site.whatsapp} target="_blank" rel="noopener noreferrer" className="hover:text-bg hover:underline underline-offset-4">
+              WhatsApp
+            </a>
+          </p>
         </div>
         <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
           <li>
