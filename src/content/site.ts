@@ -24,7 +24,8 @@ export const nav = [
   { href: "/automatizaciones-empresas-barcelona", label: "Automatizaciones" },
   { href: "/servicios", label: "Servicios" },
   { href: "/proyectos", label: "Proyectos" },
-  { href: "/equipo", label: "Equipo" },
+  { href: "/equipo", label: "Sobre mí" },
+  { href: "/blog", label: "Blog" },
   { href: "/contacto", label: "Contacto" },
 ];
 
@@ -36,7 +37,7 @@ export const hero = {
   titleLead: "Menos tareas repetitivas,",
   titleMain: "más tiempo para tu negocio",
   lead: "Primero eliminamos lo que sobra en tus procesos con Lean Manufacturing. Después automatizamos con IA lo que se repite: presupuestos, citas, facturas y cobros. Y si lo necesitas, desarrollamos tu web o tu aplicación.",
-  cta: { href: "#diagnostico", label: "Pide tu diagnóstico gratuito" },
+  cta: { href: "#diagnostico", label: "Quiero ahorrar tiempo" },
   note: "Sin compromiso · Respuesta en 2 días laborables",
 };
 export type Pillar = {
@@ -140,7 +141,7 @@ export const services: {
       name: "Formación",
       summary: "Áreas industriales, energéticas y tecnológicas",
       title: "Formación para avanzar",
-      body: "Conocimiento técnico aplicado para convertir conceptos complejos en capacidades reales. In-company, para centros de formación y en FP Dual.",
+      body: "Conocimiento técnico aplicado para convertir conceptos complejos en capacidades reales. Cursos in-company, adaptados a tu equipo y a tus instalaciones.",
       items: [
         "Lean",
         "Energía",
@@ -301,17 +302,30 @@ export type Case = {
 export const cases: { heading: string; intro: string; list: Case[] } = {
   heading: "Proyectos realizados",
   intro:
-    "Algunos proyectos que muestran cómo combinamos procesos, tecnología y formación. Pulsa en cada uno para ver el detalle.",
+    "Algunos proyectos realizados. Pulsa en cada uno para ver el detalle.",
   list: [
     {
       pillar: "Formación",
-      title: "Colaboración en acciones formativas",
-      client: "GRUPO VAGINDAUTO",
-      problem: "Acciones formativas técnicas en el ámbito del automóvil.",
+      title: "Formación en Lean Manufacturing para el equipo de producción",
+      client: "Altoplast, fabricante de embalajes para grandes empresas",
+      problem:
+        "El equipo necesitaba un método común para detectar desperdicios y proponer mejoras en planta.",
       solution:
-        "Colaboramos como formadores, aportando experiencia profesional y conocimientos aplicados al sector del automóvil.",
+        "Formación práctica en Lean Manufacturing adaptada a su planta y a sus procesos de producción.",
       result:
-        "Formaciones que combinan los fundamentos técnicos con la experiencia práctica, con contenidos directamente aplicables al entorno profesional.",
+        "El equipo comparte un mismo lenguaje y unas herramientas para aplicar la mejora continua en su día a día.",
+    },
+    {
+      pillar: "Web y digitalización",
+      title: "Web de captación de clientes con blog y SEO local",
+      client: "Armartech",
+      problem:
+        "Hacía falta una web que explicara los servicios con claridad y convirtiera las visitas en solicitudes de diagnóstico.",
+      solution:
+        "Web en Next.js con una página por servicio, blog de casos, formulario conectado al correo, dominio y correo propios, analítica de visitas, Google Search Console y Perfil de Empresa de Google.",
+      result:
+        "Una web rápida y publicada, con sus páginas indexadas en Google y lista para medir visitas y contactos.",
+      tag: "propio",
     },
     {
       pillar: "Web y digitalización",
@@ -323,18 +337,6 @@ export const cases: { heading: string; intro: string; list: Case[] } = {
         "Nueva web, optimización SEO y configuración del perfil de Google Business.",
       result:
         "Una presencia digital clara, preparada para captar clientes por búsqueda local.",
-    },
-    {
-      pillar: "Formación",
-      title: "Formación técnica en centros y empresas",
-      client:
-        "IQS, UPC, máster ELTICA (UPC), Escuela de Aprendices de SEAT y EOI",
-      problem:
-        "Equipos que necesitan dominar tecnologías nuevas: vehículo eléctrico, automatización y Lean.",
-      solution:
-        "Programas de alta tensión y riesgo eléctrico, robótica ABB, Lean Manufacturing y formación de formadores.",
-      result:
-        "Profesionales capacitados en materias técnicas, con actividad registrada en FUNDAE desde 2017.",
     },
     {
       pillar: "Web y digitalización",
@@ -384,25 +386,21 @@ export type Person = {
 };
 
 export const team = {
-  heading: "Equipo",
-  intro: "Un equipo pequeño: hablas directamente con quien hace el trabajo.",
+  heading: "Sobre mí",
+  intro: "Hablas directamente conmigo: hago el trabajo, te lo explico y respondo si algo falla.",
   people: [
     {
-      name: "Manuel García Gómez",
-      role: "Ingeniería de procesos y formación",
-      photo: "/manuel-garcia-gomez.jpg",
-      initials: "MG",
-      bio: "Ingeniero Técnico Industrial en Electrónica y Química, con trayectoria en automoción desde 1988: producción, ingeniería de desarrollo con AUDI AG e ingeniería de procesos. Formador en IQS, UPC, máster ELTICA (UPC), Escuela de Aprendices de SEAT y EOI. Posgrado en Vehículo Conectado por la UPC.",
-    },
-    {
       name: "Marianela Marín Mazaira",
-      role: "Desarrollo de software y finanzas",
+      role: "Automatizaciones con IA, desarrollo web y finanzas",
       // Guarda tu foto con este nombre en /public; mientras no exista se muestran las iniciales.
       photo: "/marianela-marin-mazaira.jpg",
       initials: "MM",
-      bio: "Licenciada en Económicas, con diez años en contabilidad y costes de producción en la industria. Desarrolladora fullstack (CFGS DAW), con prácticas de desarrollo en Volkswagen Group Services. Trabaja con Next.js, React, TypeScript, Node.js y Spring Boot para clientes en España y Estados Unidos.",
+      bio: "Licenciada en Económicas, con diez años en contabilidad y costes de producción en la industria. Técnica superior en Desarrollo de Aplicaciones Web, con prácticas de desarrollo en Volkswagen Group Services. He impartido clases de marketing y de mejora de negocio para empresas. Trabajo con Next.js, React, TypeScript, Node.js y Spring Boot para clientes en España y Estados Unidos.",
     },
   ] satisfies Person[],
+  // Colaboradores sin nombre: se muestran debajo de la biografía.
+  colaboracion:
+    "En los proyectos de Lean Manufacturing y formación técnica trabajo con un ingeniero de procesos colaborador, con más de 30 años de experiencia en automoción. Yo coordino el proyecto y soy tu persona de contacto en todo momento.",
 };
 
 // Servicio Silver Home: tecnología para personas mayores que viven en casa.

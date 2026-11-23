@@ -54,6 +54,10 @@ export const servicePages: ServicePage[] = [
     faqs: [
       { q: "¿Sirve para empresas pequeñas?", a: "Sí, cualquier empresa con procesos puede mejorar." },
       { q: "¿Cuándo se ven resultados?", a: "Las primeras mejoras suelen notarse en pocas semanas." },
+      {
+        q: "¿Quién hace el trabajo en planta?",
+        a: "Coordino el proyecto y soy tu contacto. El análisis en planta lo hago junto a un ingeniero de procesos colaborador, con más de 30 años de experiencia en automoción.",
+      },
     ],
     cta: "Solicita una visita de diagnóstico",
     image: "images/consultoria.jpg",
@@ -260,7 +264,10 @@ export const servicePages: ServicePage[] = [
     ],
     faqs: [
       { q: "¿Es bonificable?", a: "Puede serlo con el crédito de formación de la empresa (FUNDAE). Te ayudamos a comprobarlo." },
-      { q: "¿Formáis también a centros educativos?", a: "Sí, colaboramos con centros de formación y en FP Dual." },
+      {
+        q: "¿Quién imparte los cursos?",
+        a: "Los cursos técnicos los imparten formadores colaboradores con experiencia en la industria. La formación en IA y herramientas digitales la imparto yo.",
+      },
     ],
     cta: "Solicita información",
     image: "images/formacion.jpg",

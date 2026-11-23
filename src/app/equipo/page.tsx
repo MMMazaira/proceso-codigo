@@ -3,7 +3,7 @@ import PageShell, { PageIntro } from "@/components/PageShell";
 import Team from "@/components/Team";
 import { team } from "@/content/site";
 
-export const metadata: Metadata = { title: "Equipo", description: team.intro };
+export const metadata: Metadata = { title: "Sobre mí", description: team.intro };
 
 export default function EquipoPage() {
   return (

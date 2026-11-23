@@ -12,7 +12,7 @@ const jsonLd = {
   areaServed: "Barcelona",
   email: site.email,
   address: { "@type": "PostalAddress", addressLocality: "Barcelona", addressCountry: "ES" },
-  employee: team.people.map((p) => ({ "@type": "Person", name: p.name, jobTitle: p.role })),
+  founder: team.people.map((p) => ({ "@type": "Person", name: p.name, jobTitle: p.role })),
 };
 
 export default function Home() {
