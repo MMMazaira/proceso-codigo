@@ -3,6 +3,7 @@ import { Archivo } from "next/font/google";
 import { site } from "@/content/site";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import CookieConsent from "@/components/CookieConsent";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -43,6 +44,7 @@ export default function RootLayout({
       <body className="min-h-dvh">
         {children}
         <Analytics />
+        <CookieConsent />
       </body>
     </html>
   );

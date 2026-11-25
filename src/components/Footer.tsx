@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CookieSettingsLink from "./CookieSettingsLink";
 import { site } from "@/content/site";
 import { Logo } from "./Header";
 
@@ -41,6 +42,9 @@ export default function Footer() {
             <Link href="/privacidad" className="hover:text-bg hover:underline underline-offset-4">
               Privacidad
             </Link>
+          </li>
+          <li>
+            <CookieSettingsLink className="hover:text-bg hover:underline underline-offset-4" />
           </li>
           <li>
             © {year} {site.name}

@@ -23,6 +23,8 @@ export const site = {
   ],
   // Imagen que se ve al compartir la web en LinkedIn, WhatsApp, etc. (1200 x 630 px)
   ogImage: "/og-armartech.png",
+  // Microsoft Clarity (mapas de calor). Solo se carga si el visitante acepta las cookies.
+  clarityId: "zj3w59zr9c",
 };
 
 // Imágenes de fondo opcionales. Si el archivo existe en /public se usa;
@@ -555,9 +557,13 @@ export const contact = {
 };
 
 // Datos legales: completa antes de publicar (LSSI-CE y RGPD).
+// Datos del titular para el aviso legal y la política de privacidad.
+// nif: déjalo vacío ("") para que no se muestre; si algún día lo añades, aparecerá solo.
 export const legal = {
-  holder: "[Nombre y apellidos o razón social]",
-  nif: "[NIF]",
-  address: "[Domicilio fiscal]",
+  holder: "Marianela Marín Mazaira",
+  tradeName: "Armartech",
+  nif: "",
+  address: "Piera (Barcelona)",
   email: site.email,
+  updated: "noviembre de 2026",
 };
