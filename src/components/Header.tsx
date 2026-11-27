@@ -41,19 +41,19 @@ export default function Header() {
           <Logo />
         </Link>
 
-        <nav aria-label="Principal" className="hidden lg:block">
+        <nav aria-label="Principal" className="hidden xl:block">
           <NavLinks variant="desktop" />
         </nav>
 
         <Link
           href={ctaDiagnostico.href}
-          className="hidden rounded-sm bg-accent px-4 py-2 text-sm font-semibold text-bg hover:bg-accent-dark sm:inline-block"
+          className="hidden whitespace-nowrap rounded-sm bg-accent px-4 py-2 text-sm font-semibold text-bg hover:bg-accent-dark sm:inline-block"
         >
           {ctaDiagnostico.label}
         </Link>
       </div>
 
-      <nav aria-label="Secciones" className="border-t border-line lg:hidden">
+      <nav aria-label="Secciones" className="border-t border-line xl:hidden">
         <NavLinks variant="mobile" />
       </nav>
     </header>

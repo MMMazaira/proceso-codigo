@@ -13,7 +13,7 @@ export default function NavLinks({ variant }: { variant: "desktop" | "mobile" })
     <ul
       className={
         variant === "desktop"
-          ? "flex items-center gap-7 text-[0.95rem]"
+          ? "flex items-center gap-5 whitespace-nowrap text-[0.95rem]"
           : "mx-auto flex max-w-6xl gap-6 overflow-x-auto whitespace-nowrap px-4 py-2.5 text-sm"
       }
     >
