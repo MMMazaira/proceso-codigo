@@ -150,14 +150,6 @@ export default function ServiceDetail({ page }: { page: ServicePage }) {
                 </Link>
               </li>
             ))}
-            <li>
-              <Link
-                href="/silver-home"
-                className="inline-block rounded-sm border border-line px-3 py-1.5 text-sm font-medium text-ink hover:border-accent hover:text-accent"
-              >
-                Silver Home
-              </Link>
-            </li>
           </ul>
         </div>
       </section>

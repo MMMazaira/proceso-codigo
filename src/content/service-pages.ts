@@ -5,7 +5,7 @@
 export type ServicePage = {
   slug: string;
   // Pilar al que pertenece (debe coincidir con el id en services.pillars de site.ts)
-  pillar: "automatizaciones" | "consultoria" | "web" | "formacion" | "silver";
+  pillar: "automatizaciones" | "consultoria" | "web" | "formacion";
   // Texto corto para los enlaces desde la página Servicios
   linkLabel: string;
   title: string;
@@ -29,8 +29,8 @@ export const servicePages: ServicePage[] = [
     slug: "consultoria-lean-manufacturing",
     pillar: "consultoria",
     linkLabel: "Consultoría Lean Manufacturing",
-    title: "Consultoría Lean Manufacturing en Barcelona",
-    lead: "Mejora tu producción, reduce costes y elimina desperdicios con métodos probados.",
+    title: "Produce más con el mismo equipo, ordenando antes de invertir",
+    lead: "Analizamos tu planta, reducimos paradas, tiempos de cambio y desperdicios, y solo después digitalizamos lo que de verdad ayuda. Con más de 30 años de experiencia en automoción detrás.",
     metaTitle: "Consultoría Lean Manufacturing en Barcelona",
     metaDescription:
       "Consultoría Lean Manufacturing para empresas en Barcelona y Catalunya: mapas de flujo de valor, 5S, reducción de tiempos de cambio y formación del equipo.",
@@ -66,8 +66,8 @@ export const servicePages: ServicePage[] = [
     slug: "automatizaciones-empresas-barcelona",
     pillar: "automatizaciones",
     linkLabel: "Automatizaciones con IA",
-    title: "Automatizaciones con IA para pymes en Barcelona",
-    lead: "Las tareas repetitivas de tu negocio, hechas solas. Menos horas de oficina y más tiempo para tus clientes.",
+    title: "Tú das los datos una vez; el resto se hace solo",
+    lead: "Dictas un presupuesto o marcas un trabajo como terminado, y se preparan el PDF, la factura, los recordatorios de cobro y las respuestas por WhatsApp. Con inteligencia artificial y con las herramientas que ya usas.",
     metaTitle: "Automatizaciones con IA para pymes en Barcelona",
     metaDescription:
       "Automatizamos presupuestos, atención por WhatsApp, citas, facturas y cobros con IA, conectando las herramientas que ya usas. Para pymes y autónomos de Barcelona y Catalunya.",
@@ -77,7 +77,7 @@ export const servicePages: ServicePage[] = [
     what: [
       "Presupuestos en minutos: dictas la visita en el móvil y recibes el presupuesto en PDF con tus precios",
       "Atención y citas: un asistente responde por WhatsApp o desde la web y apunta la cita en tu agenda",
-      "Facturas y cobros: se envían solas y los recordatorios de pago también",
+      "Facturas y cobros: la factura se prepara al terminar el trabajo y los recordatorios de pago salen solos",
       "Datos sin copiar a mano: pedidos, formularios y correos que pasan solos a tu hoja o tu programa",
       "Informes y avisos: un resumen semanal en tu correo y avisos cuando pasa algo importante",
       "A medida: si una tarea se repite en tu negocio, la estudiamos",
@@ -97,7 +97,7 @@ export const servicePages: ServicePage[] = [
         "Una sola persona de contacto que conoce tu negocio.",
       ],
     },
-    price: "Puesta en marcha desde 450 € y mantenimiento desde 39 € al mes (sin IVA). En el diagnóstico te damos el precio exacto.",
+    price: "Puesta en marcha desde 290 € y mantenimiento desde 29 € al mes (IVA no incluido). Precio especial para los 5 primeros negocios. En el diagnóstico te doy el precio exacto.",
     faqs: [
       { q: "¿Necesito saber de informática?", a: "No. Te dejamos todo funcionando y te enseñamos a usarlo en una sesión corta." },
       { q: "¿Tengo que cambiar los programas que uso?", a: "Normalmente no. Conectamos lo que ya tienes: Gmail, Outlook, Google Calendar, WhatsApp Business, hojas de cálculo y los programas de facturación más habituales." },
@@ -143,8 +143,8 @@ export const servicePages: ServicePage[] = [
     slug: "mantenimiento-web-barcelona",
     pillar: "web",
     linkLabel: "Actualización y mantenimiento web",
-    title: "Actualización y mantenimiento de páginas web en Barcelona",
-    lead: "Tu web siempre al día, segura, rápida y con una imagen moderna.",
+    title: "Tu web siempre al día, sin que tengas que pensar en ella",
+    lead: "Actualizo textos, fotos y precios, reviso que funcione y que sea segura, y te digo cada mes cuánta gente la visita y desde dónde. Una cuota mensual fija, sin sorpresas.",
     metaTitle: "Actualización y mantenimiento de páginas web en Barcelona",
     metaDescription:
       "Rediseño, adaptación a móviles, velocidad, actualización de contenidos, copias de seguridad y mantenimiento mensual de tu web. Barcelona y Catalunya.",
@@ -177,8 +177,8 @@ export const servicePages: ServicePage[] = [
     slug: "diseno-web-barcelona",
     pillar: "web",
     linkLabel: "Diseño de páginas web",
-    title: "Diseño de páginas web para empresas en Barcelona",
-    lead: "Una web profesional, rápida y fácil de encontrar, pensada para conseguir contactos.",
+    title: "Una web que te trae clientes, no solo una tarjeta de visita",
+    lead: "Webs rápidas para pequeños negocios y pymes, preparadas para salir en Google, con WhatsApp y formulario de contacto, y fáciles de actualizar. Te la entrego funcionando y, si quieres, me encargo de mantenerla al día.",
     metaTitle: "Diseño de páginas web para empresas en Barcelona",
     metaDescription:
       "Diseñamos y desarrollamos webs corporativas adaptadas a móvil, con SEO básico, formulario de contacto y textos legales. Barcelona y Catalunya.",
@@ -203,6 +203,40 @@ export const servicePages: ServicePage[] = [
       { q: "¿Podré cambiar los textos yo mismo?", a: "Sí, te dejamos la web preparada y te explicamos cómo hacerlo." },
     ],
     cta: "Solicita presupuesto sin compromiso",
+    image: "images/web.jpg",
+  },
+  {
+    slug: "aplicaciones-web-a-medida",
+    pillar: "web",
+    linkLabel: "Aplicaciones web a medida",
+    title: "Un programa a la medida de tu negocio, sin pagar por lo que no usas",
+    lead: "Desarrollo aplicaciones web para pequeños negocios y pymes: clientes, pedidos, partes de trabajo o stock, todo en un solo sitio y desde el móvil o el ordenador. Empiezas con lo que necesitas hoy y lo ampliamos cuando crezcas.",
+    metaTitle: "Aplicaciones web a medida para pequeños negocios y pymes",
+    metaDescription:
+      "Desarrollo de aplicaciones web a medida para pymes y autónomos: clientes, pedidos, partes de trabajo y stock, desde el móvil o el ordenador. Anoia, Baix Llobregat y Barcelona.",
+    problem:
+      "Muchos negocios trabajan con hojas de cálculo que se duplican, libretas y programas que cuestan cada mes y solo usan a medias. La información se pierde entre el móvil, el correo y el ordenador. Hacemos una aplicación sencilla con lo que tu negocio necesita de verdad, y nada más.",
+    whatHeading: "¿Qué puede hacer tu aplicación?",
+    what: [
+      "Clientes y contactos: todo el historial de cada cliente en una ficha",
+      "Pedidos y presupuestos: de la petición a la entrega, sin perder nada",
+      "Partes de trabajo desde el móvil, con fotos y firma del cliente",
+      "Stock y materiales, con aviso cuando algo se acaba",
+      "Resumen del negocio: facturado, cobrado y pendiente",
+      "Conectada con tu correo, WhatsApp o tu programa de facturación",
+    ],
+    how: [
+      "Vemos cómo trabajas hoy y qué te sobra o te falta",
+      "Te enseño un prototipo antes de desarrollar",
+      "Primera versión funcionando en pocas semanas",
+      "La ampliamos por fases, cuando lo necesites",
+    ],
+    faqs: [
+      { q: "¿Es mejor que un programa de los que ya existen?", a: "Si un programa estándar te sirve, te lo diré. La aplicación a medida compensa cuando pagas por funciones que no usas o cuando ninguno se adapta a tu forma de trabajar." },
+      { q: "¿Funciona en el móvil?", a: "Sí, se usa desde el móvil, la tablet o el ordenador, sin instalar nada." },
+      { q: "¿De quién son los datos?", a: "Tuyos. Si algún día dejas de trabajar conmigo, te los llevas." },
+    ],
+    cta: "Pide tu diagnóstico gratuito",
     image: "images/web.jpg",
   },
   {

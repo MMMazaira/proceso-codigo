@@ -12,6 +12,8 @@ const nextConfig: NextConfig = {
         destination: "https://www.armartechweb.com/:path*",
         permanent: true,
       },
+      // Silver Home se ha retirado: quien llegue a su antigua dirección va a la portada.
+      { source: "/silver-home", destination: "/", permanent: true },
     ];
   },
 };

@@ -24,10 +24,6 @@ export const pillarTone: Record<string, { overlay: string; chip: string }> = {
     overlay: "bg-gradient-to-t from-primary-dark via-primary/85 to-slate/50",
     chip: "bg-slate",
   },
-  silver: {
-    overlay: "bg-gradient-to-t from-primary-dark via-primary/85 to-teal/40",
-    chip: "bg-teal",
-  },
 };
 
 // Adónde lleva cada tarjeta de servicio de la portada
@@ -36,7 +32,6 @@ const destino: Record<string, string> = {
   consultoria: "/consultoria-lean-manufacturing",
   web: "/servicios#web",
   formacion: "/formacion-tecnica-empresas",
-  silver: "/silver-home",
 };
 
 const enlace = (id: string) => destino[id] ?? `/servicios#${id}`;

@@ -1,6 +1,7 @@
 import PageShell from "@/components/PageShell";
 import Hero from "@/components/Hero";
 import HomeSummary from "@/components/HomeSummary";
+import HerramientaBanner from "@/components/HerramientaBanner";
 import { site, team } from "@/content/site";
 
 const jsonLd = {
@@ -22,6 +23,7 @@ export default function Home() {
   return (
     <PageShell>
       <Hero />
+      <HerramientaBanner />
       <HomeSummary />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     </PageShell>

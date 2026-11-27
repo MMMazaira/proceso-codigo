@@ -40,6 +40,7 @@ export const nav = [
   { href: "/proyectos", label: "Proyectos" },
   { href: "/equipo", label: "Sobre mí" },
   { href: "/blog", label: "Blog" },
+  { href: "/herramientas/qr-resenas", label: "QR gratis" },
   { href: "/contacto", label: "Contacto" },
 ];
 
@@ -49,11 +50,11 @@ export const ctaDiagnostico = { href: "/contacto?tema=diagnostico", label: "Diag
 
 export const hero = {
   // Frase pequeña encima del título: a quién va dirigida la web
-  eyebrow: "Para talleres, instaladores y pequeñas empresas del Anoia y el Baix Llobregat",
-  titleLead: "Menos tareas repetitivas,",
-  titleMain: "más tiempo para tu negocio",
-  lead: "Automatizamos con IA lo que te quita horas cada semana: presupuestos, citas, facturas y cobros. Si tu taller o tu fábrica necesita ordenar sus procesos, empezamos por Lean Manufacturing. En persona desde Piera y con precio cerrado.",
-  cta: { href: "#diagnostico", label: "Quiero ahorrar tiempo" },
+  eyebrow: "Para talleres, instaladores y pymes del Anoia y el Baix Llobregat. Voy a verte en persona.",
+  titleLead: "Tu negocio contesta, presupuesta y cobra",
+  titleMain: "en la mitad de tiempo, mientras tú trabajas",
+  lead: "Creo webs y herramientas con inteligencia artificial para que respondas antes a tus clientes, envíes presupuestos el mismo día y cobres a tiempo.",
+  cta: { href: "#diagnostico", label: "Pedir diagnóstico gratuito" },
   note: "Sin compromiso · Respuesta en 2 días laborables",
 };
 export type Pillar = {
@@ -83,12 +84,12 @@ export const services: {
 } = {
   heading: "Nuestros servicios",
   intro:
-    "Primero simplificamos tus procesos, después automatizamos lo que se repite y desarrollamos las herramientas que te faltan. También formamos a tu equipo y, con Silver Home, llevamos la tecnología útil a los hogares de las personas mayores.",
+    "Primero simplificamos tus procesos, después automatizamos lo que se repite y desarrollamos las herramientas que te faltan. También formamos a tu equipo.",
   pillars: [
     {
       id: "automatizaciones",
       name: "Automatizaciones con IA",
-      summary: "Las tareas repetitivas de tu negocio, hechas solas",
+      summary: "Tú das los datos una vez; el resto se hace solo",
       title: "Automatizaciones con IA",
       body: "Presupuestos en minutos, clientes atendidos por WhatsApp, citas en tu agenda y facturas que se cobran sin perseguir a nadie. Conectamos las herramientas que ya usas.",
       items: [
@@ -149,6 +150,7 @@ export const services: {
       destacado: true,
       links: [
         { href: "/diseno-web-barcelona", label: "Ver diseño web" },
+        { href: "/aplicaciones-web-a-medida", label: "Ver aplicaciones a medida" },
         { href: "/digitalizacion-industrial", label: "Ver digitalización" },
       ],
     },
@@ -169,29 +171,9 @@ export const services: {
       imagePosition: "object-[50%_20%]",
       links: [{ href: "/formacion-tecnica-empresas", label: "Ver formación" }],
     },
-    {
-      id: "silver",
-      name: "Silver Home",
-      summary: "Tecnología para personas mayores que viven en casa",
-      title: "Más autonomía en casa",
-      body: "Relojes SOS, tablets adaptadas y sensores de movimiento, humo, fugas de agua y apertura de puertas. Lo instalamos sin obras, lo configuramos, lo explicamos a la persona y a su familia, y damos soporte.",
-      items: [
-        "Relojes SOS",
-        "Tablets adaptadas",
-        "Sensores en el hogar",
-        "Avisos a familiares",
-      ],
-      steps: [
-        "Analizamos el hogar",
-        "Instalamos y configuramos",
-        "Formamos y acompañamos",
-      ],
-      image: "images/silver-home.jpg",
-      links: [{ href: "/silver-home", label: "Ver Silver Home" }],
-    },
   ],
   closing:
-    "Servicios complementarios para mejorar procesos, impulsar la presencia digital, desarrollar conocimiento técnico y dar más autonomía a las personas mayores en su casa.",
+    "Servicios complementarios para mejorar procesos, impulsar la presencia digital y desarrollar conocimiento técnico.",
 };
 
 // Paquetes con precio orientativo.
@@ -419,80 +401,6 @@ export const team = {
     "En los proyectos de Lean Manufacturing y formación técnica trabajo con un ingeniero de procesos colaborador, con más de 30 años de experiencia en automoción. Yo coordino el proyecto y soy tu persona de contacto en todo momento.",
 };
 
-// Servicio Silver Home: tecnología para personas mayores que viven en casa.
-export const silverHome = {
-  name: "Silver Home",
-  badge: "Servicio Armartech",
-  title: "Silver Home",
-  lead: "Tecnología para vivir en casa con más autonomía, seguridad y tranquilidad.",
-  intro:
-    "Relojes SOS, tablets adaptadas y sensores de movimiento, humo, fugas de agua y apertura de puertas para personas mayores que viven en su domicilio. Nosotros lo instalamos, lo configuramos, lo explicamos y damos soporte.",
-  // Foto opcional: guárdala como public/images/silver-home.jpg (si falta, se ve la trama azul).
-  image: "images/silver-home.jpg",
-  devices: [
-    {
-      id: "reloj",
-      name: "Relojes SOS",
-      body: "Un botón para pedir ayuda desde cualquier lugar de la casa, y aviso a la familia si hace falta.",
-    },
-    {
-      id: "tablet",
-      name: "Tablets adaptadas",
-      body: "Pantalla sencilla para hacer videollamadas, ver fotos y hablar con la familia sin complicaciones.",
-    },
-    {
-      id: "sensor",
-      name: "Sensores en el hogar",
-      body: "Detectores de movimiento, humo, fugas de agua y apertura de puertas, colocados donde realmente hacen falta.",
-    },
-    {
-      id: "aviso",
-      name: "Avisos a familiares",
-      body: "Si algo no va bien, las personas de contacto reciben un aviso en el móvil al momento.",
-    },
-  ],
-  stepsHeading: "Nos ocupamos de todo, no solo de la tecnología",
-  steps: [
-    {
-      title: "Analizamos el hogar",
-      body: "Revisamos accesos, baño, cocina y dormitorio, y escuchamos la rutina y el nivel de autonomía de la persona.",
-    },
-    {
-      title: "Instalamos y configuramos",
-      body: "Elegimos los dispositivos justos, sin obras, y dejamos los avisos y los contactos preparados desde el primer día.",
-    },
-    {
-      title: "Formamos y acompañamos",
-      body: "Lo explicamos a la persona y a su familia con calma, y damos soporte y revisiones periódicas.",
-    },
-  ],
-  families: {
-    heading: "Para familias",
-    points: [
-      "Tranquilidad sin renunciar a que tu familiar siga en su casa.",
-      "Dispositivos sencillos, pensados para personas mayores.",
-      "Una sola persona de contacto que se encarga de todo.",
-    ],
-  },
-  partners: {
-    heading: "Para centros, farmacias y servicios de atención",
-    audience:
-      "Centros de día, residencias, ayuda a domicilio, farmacias y ortopedias.",
-    points: [
-      "Complementa el servicio y la teleasistencia que ya tenga la persona.",
-      "Tecnología sencilla, configurada para que sea útil desde el primer día.",
-      "Una única persona de contacto durante todo el proceso.",
-      "Posibilidad de prueba piloto con algunas de las personas a las que atendéis.",
-    ],
-  },
-  cta: {
-    title: "¿Hablamos 30 minutos?",
-    body: "Os presentamos el proyecto y vemos juntos cómo colaborar. Primera reunión sin compromiso.",
-    href: "/contacto",
-    label: "Solicitar una reunión",
-  },
-};
-
 // Portada
 export const home = {
   serviciosTitulo: "Tres formas de ahorrar tiempo y dinero",
@@ -571,7 +479,6 @@ export const contact = {
     "Consultoría Lean / procesos",
     "Web o aplicación",
     "Formación técnica",
-    "Silver Home (personas mayores)",
     "Otro",
   ],
 };
