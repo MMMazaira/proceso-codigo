@@ -40,7 +40,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className={archivo.variable}>
+    // data-scroll-behavior: el desplazamiento suave solo se usa en los enlaces dentro de la página;
+    // al cambiar de página, Next.js va arriba de golpe, sin "saltos".
+    // suppressHydrationWarning: ignora los atributos que añaden extensiones del navegador.
+    <html lang="es" className={archivo.variable} data-scroll-behavior="smooth" suppressHydrationWarning>
       <body className="min-h-dvh">
         {children}
         <Analytics />
