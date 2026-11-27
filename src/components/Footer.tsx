@@ -34,6 +34,11 @@ export default function Footer() {
             </Link>
           </li>
           <li>
+            <Link href="/herramientas/qr-resenas" className="hover:text-bg hover:underline underline-offset-4">
+              QR de reseñas gratis
+            </Link>
+          </li>
+          <li>
             <Link href="/aviso-legal" className="hover:text-bg hover:underline underline-offset-4">
               Aviso legal
             </Link>
