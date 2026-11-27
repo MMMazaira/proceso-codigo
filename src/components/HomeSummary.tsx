@@ -1,5 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
-import { contact, diagnosticoTema, home, services, site } from "@/content/site";
+import { contact, diagnosticoTema, home, services, site, team } from "@/content/site";
+import { publicAsset } from "@/lib/assets";
 import Backdrop from "./Backdrop";
 import ContactForm from "./ContactForm";
 import PillarIcon from "./PillarIcon";
@@ -43,39 +45,11 @@ const enlace = (id: string) => destino[id] ?? `/servicios#${id}`;
 // formulario de diagnóstico gratuito y servicios secundarios.
 export default function HomeSummary() {
   const principales = services.pillars.filter((p) => p.destacado);
+  const foto = publicAsset(team.people[0].photo);
   const otros = services.pillars.filter((p) => !p.destacado);
 
   return (
     <>
-      {/* Servicios principales */}
-      <section aria-labelledby="servicios-title" className="bg-surface">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-20">
-          <h2 id="servicios-title" className="max-w-2xl text-3xl font-extrabold tracking-tight text-ink md:text-4xl">
-            {home.serviciosTitulo}
-          </h2>
-          <ul className="mt-10 grid gap-5 md:grid-cols-3">
-            {principales.map((p) => (
-              <li key={p.id}>
-                <Link
-                  href={enlace(p.id)}
-                  className="group relative isolate flex min-h-80 flex-col justify-end overflow-hidden rounded-md p-7 text-bg"
-                >
-                  <Backdrop image={p.image} overlay={pillarTone[p.id]?.overlay} position={p.imagePosition} />
-                  <span className={`flex h-11 w-11 items-center justify-center rounded-md text-bg ${pillarTone[p.id]?.chip ?? "bg-accent"}`}>
-                    <PillarIcon id={p.id} size={24} />
-                  </span>
-                  <span className="mt-5 text-2xl font-extrabold tracking-tight">{p.name}</span>
-                  <span className="mt-2 leading-relaxed text-bg/85">{p.summary}</span>
-                  <span className="mt-5 text-sm font-semibold text-teal underline-offset-4 group-hover:underline">
-                    Saber más
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
       {/* Qué automatizamos */}
       <section aria-labelledby="auto-title">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-20">
@@ -102,6 +76,35 @@ export default function HomeSummary() {
               Ver todo lo que automatizamos →
             </Link>
           </p>
+        </div>
+      </section>
+
+      {/* Servicios principales */}
+      <section aria-labelledby="servicios-title" className="bg-surface">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 md:py-20">
+          <h2 id="servicios-title" className="max-w-2xl text-3xl font-extrabold tracking-tight text-ink md:text-4xl">
+            {home.serviciosTitulo}
+          </h2>
+          <ul className="mt-10 grid gap-5 md:grid-cols-3">
+            {principales.map((p) => (
+              <li key={p.id}>
+                <Link
+                  href={enlace(p.id)}
+                  className="group relative isolate flex min-h-80 flex-col justify-end overflow-hidden rounded-md p-7 text-bg"
+                >
+                  <Backdrop image={p.image} overlay={pillarTone[p.id]?.overlay} position={p.imagePosition} />
+                  <span className={`flex h-11 w-11 items-center justify-center rounded-md text-bg ${pillarTone[p.id]?.chip ?? "bg-accent"}`}>
+                    <PillarIcon id={p.id} size={24} />
+                  </span>
+                  <span className="mt-5 text-2xl font-extrabold tracking-tight">{p.name}</span>
+                  <span className="mt-2 leading-relaxed text-bg/85">{p.summary}</span>
+                  <span className="mt-5 text-sm font-semibold text-teal underline-offset-4 group-hover:underline">
+                    Saber más
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -135,6 +138,52 @@ export default function HomeSummary() {
         </div>
       </section>
 
+      {/* Confianza: quién soy y qué dicen los clientes */}
+      <section aria-labelledby="sobre-mi-title" className="bg-bg">
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 md:py-20 md:gap-16">
+          <div className="flex flex-col gap-6 sm:flex-row">
+            {foto && (
+              <Image
+                src={foto}
+                alt={`Retrato de ${team.people[0].name}`}
+                width={224}
+                height={280}
+                className="h-35 w-28 shrink-0 rounded-md object-cover object-top"
+              />
+            )}
+            <div>
+              <h2 id="sobre-mi-title" className="text-3xl font-extrabold tracking-tight text-ink">
+                {home.sobreMi.titulo}
+              </h2>
+              <p className="mt-3 text-lg leading-relaxed text-muted">{home.sobreMi.texto}</p>
+              <Link href={home.sobreMi.enlace.href} className="mt-4 inline-block font-semibold text-accent underline-offset-4 hover:underline">
+                {home.sobreMi.enlace.label} →
+              </Link>
+            </div>
+          </div>
+          <div className="rounded-md border border-line bg-surface p-7">
+            <h2 className="text-xl font-bold text-ink">{home.resenas.titulo}</h2>
+            {home.resenas.citas.map((c) => (
+              <figure key={c.autor} className="mt-4">
+                <p aria-label="5 de 5 estrellas" className="text-lg tracking-widest text-[#f4b400]">
+                  ★★★★★
+                </p>
+                <blockquote className="mt-2 text-lg leading-relaxed text-ink">«{c.texto}»</blockquote>
+                <figcaption className="mt-2 text-sm text-muted">{c.autor}</figcaption>
+              </figure>
+            ))}
+            <a
+              href={home.resenas.enlace}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-block text-sm font-semibold text-accent underline-offset-4 hover:underline"
+            >
+              Ver todas las reseñas en Google →
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Diagnóstico gratuito */}
       <section id="diagnostico" aria-labelledby="diag-title" className="scroll-mt-28 bg-surface">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 md:py-20 lg:grid-cols-[1fr_1.4fr] lg:gap-16">
@@ -154,6 +203,9 @@ export default function HomeSummary() {
                 </li>
               ))}
             </ul>
+            <p className="mt-6 rounded-md border-l-4 border-teal bg-bg px-4 py-3 font-semibold leading-relaxed text-ink">
+              {home.diagnostico.garantia}
+            </p>
             <p className="mt-8 leading-relaxed text-ink">
               ¿Prefieres hablar? Llámame al{" "}
               <a href={site.phoneHref} className="font-semibold text-accent underline-offset-4 hover:underline">
@@ -164,6 +216,12 @@ export default function HomeSummary() {
                 escríbeme por WhatsApp
               </a>
               .
+            </p>
+            <p className="mt-6 text-sm leading-relaxed text-muted">
+              ¿Todavía no quieres un diagnóstico?{" "}
+              <Link href="/herramientas/qr-resenas" className="font-semibold text-accent underline-offset-4 hover:underline">
+                Llévate gratis el cartel con QR para conseguir más reseñas en Google →
+              </Link>
             </p>
           </div>
           <div className="rounded-lg border border-line bg-bg p-6 sm:p-8">

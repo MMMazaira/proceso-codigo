@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import PageShell, { PageIntro } from "@/components/PageShell";
+import HerramientaBanner from "@/components/HerramientaBanner";
 import { posts } from "@/content/blog";
 import { ctaDiagnostico, site } from "@/content/site";
 
@@ -114,6 +115,8 @@ export default async function BlogPostPage({ params }: Props) {
           </Link>
         </div>
       </section>
+
+      <HerramientaBanner />
 
       {/* Otros artículos */}
       {otros.length > 0 && (

@@ -513,33 +513,53 @@ export const home = {
     {
       icono: "euro",
       problema: "Facturas tarde y pasas horas reclamando pagos.",
-      solucion: "Las facturas salen solas desde tu programa y los recordatorios de pago también.",
+      solucion: "La factura se prepara al terminar el trabajo y los recordatorios de pago salen solos.",
       ahorro: "2-4 h al mes",
     },
   ],
-  pasosTitulo: "Cómo trabajamos",
+  pasosTitulo: "Cómo trabajo",
   pasos: [
-    { titulo: "Diagnóstico gratuito", texto: "Vemos qué tareas y procesos te quitan más tiempo y cuántas horas puedes ahorrar." },
-    { titulo: "Propuesta cerrada", texto: "Una solución concreta, con plazo y precio por escrito." },
-    { titulo: "Puesta en marcha", texto: "La montamos en una o dos semanas y la probamos con tus datos reales." },
-    { titulo: "Seguimiento", texto: "Vigilamos que todo funcione, ajustamos y ampliamos cuando lo necesites." },
+    { titulo: "Diagnóstico gratuito", texto: "Voy a verte y miramos juntos qué tareas te quitan más tiempo y cuántas horas puedes ahorrar." },
+    { titulo: "Propuesta cerrada", texto: "Te doy una solución concreta, con plazo y precio por escrito." },
+    { titulo: "Puesta en marcha", texto: "La monto en una o dos semanas y la pruebo con tus datos reales." },
+    { titulo: "Seguimiento", texto: "Vigilo que todo funcione, lo ajusto y lo amplío cuando lo necesites." },
   ],
   garantias: [
     "Funciona en la nube las 24 horas, sin instalar nada",
     "Tus cuentas y tus datos siguen siendo tuyos",
-    "Cumplimos el RGPD",
+    "Cumplo el RGPD",
     "Una sola persona de contacto",
   ],
   diagnostico: {
     titulo: "Pide tu diagnóstico gratuito",
-    texto: "Cuéntanos a qué se dedica tu empresa y qué tarea te gustaría no volver a hacer a mano. Te respondemos en 2 días laborables.",
+    texto: "Cuéntame a qué se dedica tu negocio y qué tarea te gustaría no volver a hacer a mano. Te respondo en 2 días laborables.",
+    garantia: "Si no encuentro al menos 3 horas a la semana que ahorrarte, te lo digo y no te propongo nada.",
     incluye: [
       "Qué tareas y procesos se pueden simplificar o automatizar",
       "Cuántas horas al mes podrías ahorrar",
       "Una propuesta con plazo y precio, sin compromiso",
     ],
   },
-  otrosTitulo: "También hacemos",
+  otrosTitulo: "También hago",
+  // Bloque de confianza: quién soy y qué dicen los clientes (reseñas reales de Google, copiadas tal cual)
+  sobreMi: {
+    titulo: "Soy Marianela",
+    texto:
+      "Desarrolladora de aplicaciones web y, antes, diez años en contabilidad y costes de producción. Por eso no solo te digo cuántas horas pierdes: también cuánto dinero. Vivo en Piera y voy a verte a tu negocio.",
+    enlace: { href: "/equipo", label: "Más sobre mí" },
+  },
+  resenas: {
+    titulo: "Lo que dicen en Google",
+    // Enlace a la ficha de Google de Armartech
+    enlace: "https://g.page/r/CYcjGJ2WY30PEBM",
+    citas: [
+      {
+        texto:
+          "Su calidad, profesionalismo, responsabilidad y compromiso con cada cliente hablan por sí solos. La calidad no es una promesa, sino su sello de identidad.",
+        autor: "M-G White Services LLC (Estados Unidos)",
+      },
+    ],
+  },
 };
 
 export const contact = {
